@@ -1,0 +1,26 @@
+[
+    {
+        "correo":"angelo@gmail.com",
+        "contrasenia":"password_angelo",
+        "rol":"administrador",
+        "favoritos":[]
+    },
+    {
+        "correo":"maxi@gmail.com",
+        "contrasenia":"password_maxi",
+        "rol":"administrador",
+        "favoritos":[]
+    },
+    {
+        "correo":"facundo@gmail.com",
+        "contrasenia":"password_facundo",
+        "rol":"administrador",
+        "favoritos":[]
+    },
+    {
+        "correo":"daniel@gmail.com",
+        "contrasenia":"password_daniel",
+        "rol":"administrador",
+        "favoritos":[]
+    }
+]
