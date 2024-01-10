@@ -1,23 +1,27 @@
 [
     {
+        "user":"angelo perez",
         "correo":"angelo@gmail.com",
         "contrasenia":"password_angelo",
         "rol":"administrador",
         "favoritos":[]
     },
     {
+        "user":"maxi leal",
         "correo":"maxi@gmail.com",
         "contrasenia":"password_maxi",
         "rol":"administrador",
         "favoritos":[]
     },
     {
+        "user":"facundo mollano",
         "correo":"facundo@gmail.com",
         "contrasenia":"password_facundo",
         "rol":"administrador",
         "favoritos":[]
     },
     {
+        "user":"daniel pomares",
         "correo":"daniel@gmail.com",
         "contrasenia":"password_daniel",
         "rol":"administrador",
