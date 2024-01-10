@@ -1,7 +1,15 @@
-.busqueda{
-    @media (min-width:992px) {
-        width: 60vw;
-    }
-    
+/* :root{
+    --bg-color:#222327;
+    --text-color:#fff;
+    --main-color:#29fd53;
 }
-    
+
+.logo{
+    width: 100px;
+    height: 100px;
+}
+.logo img{
+    width: 100%;
+    height: 100%;
+    background-color: red;
+} */

@@ -4,138 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
     <link rel="stylesheet" href="./css/index.css" />
     <title>Rolling Games</title>
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid order-lg-1">
-          <a class="navbar-brand" href="./index.html">CRUD</a>
-          <button
-            class="navbar-toggler order-4 order-lg-2"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse order-lg-3" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="./index.html"
-                  >Inicio</a
-                >
-              </li>
-              <li class="nav-item busqueda">
-                <form class="d-flex" role="search">
-                  <input
-                    class="form-control me-2"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                  <button class="btn btn-outline-success" type="submit">
-                    Search
-                  </button>
-                </form>
-              </li>
-              <!-- Aca un d-none pero poner cuando tengas hecho el navbar -->
-              <li class="nav-item" id="adminLi">
-                <a class="nav-link" href="./admin.html">Administración</a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="#"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                  >login</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" onclick="LogOut()">logout</a>
-              </li>
-            </ul>
+      <nav>
+        <div class="menu">
+          <div class="logo">
+            <img
+              src="./resource/images/rolling_games_Logo_PNG.png"
+              alt="Rolling Games Logo"
+            />
           </div>
-          <a
-          class="login order-2 order-lg-4"
-            href="#"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-            >Login</a
-          >
-        </div>
-        <!-- Modal -->
-        <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
+          <!-- Menu -->
+          <input type="checkbox" id="check" />
+          <label for="check" class="checkbtn">
+            <i class="bi bi-list"></i>
+          </label>
+          <ul>
+            <li>
+              <div class="MobNavBtns">
+                <i class="bi bi-person-fill"></i>
+                <p>user</p>
+                <button>Play Now</button>
               </div>
-              <div class="modal-body">
-                <form id="formLogin">
-                  <div class="my-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input
-                      id="email"
-                      type="email"
-                      class="form-control"
-                      placeholder="Ingrese su email"
-                      minlength="1"
-                      maxlength="50"
-                      required
-                    />
-                  </div>
-                  <div class="my-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input
-                      id="password"
-                      type="text"
-                      class="form-control"
-                      placeholder="Ingrese su contraseña"
-                      minlength="1"
-                      maxlength="50"
-                      required
-                    />
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Cerrar
-                    </button>
-                    <button type="submit" class="btn btn-primary">
-                      Ingresar
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
+            </li>
+            <li>
+              <form>
+                <label for="search"><i class="bi bi-search"></i></label>
+                <input type="text" name="search" id="search" />
+              </form>
+            </li>
+            <li><a href="#">Administrador</a></li>
+            <li><a href="#">Acerca de nosotros</a></li>
+            <!-- <li><a href="#">Gallery</a></li> -->
+            <!-- <li><a href="#">More</a></li> -->
+          </ul>
+          <!-- Menu Bar Code End -->
+
+          <!-- Header Button Code -->
+          <div class="MobNavBtns">
+            <i class="bi bi-person-fill"></i>
+            <p>user</p>
+            <button>Play Now</button>
           </div>
         </div>
       </nav>
     </header>
     <script src="./js/bootstrap.bundle.js"></script>
+    <script src="./js/navbar-rolling.js"></script>
   </body>
 </html>
