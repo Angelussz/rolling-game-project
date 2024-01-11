@@ -10,24 +10,23 @@ CheckOrSaveAdmin();
 function Login(e) {
   e.preventDefault();
   console.log("Desde login");
-  const usuariosRegistrados = JSON.parse(localStorage.getItem("users"));
-  if (usuariosRegistrados.length > 0 && usuariosRegistrados !== null) {
+  const registerUsers = JSON.parse(localStorage.getItem("users"));
+  if (registerUsers.length > 0 && registerUsers !== null) {
     console.log("Existen usuarios registrados");
-    const usuarioEncontrado = usuariosRegistrados.find(
+    const findUser = registerUsers.find(
       (element) => element.email === inputEmail.value
     );
-    if (usuarioEncontrado !== undefined) {
-      if (usuarioEncontrado.password === inputPassword.value) {
+    if (findUser !== undefined) {
+      if (findUser.password === inputPassword.value) {
         const savedUser = {
-          email: usuarioEncontrado.email,
-          role: usuarioEncontrado.role,
+          email: findUser.email,
+          role: findUser.role,
         };
         saveUserLog(savedUser);
         checkAdmin(adminLi);
         formLogin.reset();
-
-        // document.querySelector('.btn.btn-secondary[data-bs-dismiss="modal"]').click()
-        $("#exampleModal").modal("hide");
+        document.querySelector('.btn.btn-secondary[data-bs-dismiss="modal"]').click()
+        // $("#exampleModal").modal("hide");
       } else {
         console.log("Email o password incorrectos");
       }
@@ -48,8 +47,10 @@ window.LogOut = function () {
 export function checkAdmin(adminLi) {
   const role = getRoleUserLog();
 
-  if (role === "Admin") {
-    adminLi.className = "nav-item";
+  if (role === "admin") {
+    console.log("aplica")
+    // adminLi.className = "nav-item";
+    adminLi.className = "";
   }
 }
 
