@@ -17,7 +17,7 @@
     games: {
         category, 
         code, 
-        price, 
+        price:(en dolares), 
         URLimage, 
         description, 
         requirements, 
@@ -25,3 +25,4 @@
         platforms
         }
     ```
+- Los roles son user y admin, user para registros y admin ya los tenemos en el archivo json
