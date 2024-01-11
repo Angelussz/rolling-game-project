@@ -3,28 +3,28 @@
         "user":"angelo perez",
         "email":"angelo@gmail.com",
         "password":"password_angelo",
-        "rol":"admin",
+        "role":"admin",
         "favorites":[]
     },
     {
         "user":"maxi leal",
         "email":"maxi@gmail.com",
         "password":"password_maxi",
-        "rol":"admin",
+        "role":"admin",
         "favorites":[]
     },
     {
         "user":"facundo mollano",
         "email":"facundo@gmail.com",
         "password":"password_facundo",
-        "rol":"admin",
+        "role":"admin",
         "favorites":[]
     },
     {
         "user":"daniel pomares",
         "email":"daniel@gmail.com",
         "password":"password_daniel",
-        "rol":"admin",
+        "role":"admin",
         "favorites":[]
     }
 ]
