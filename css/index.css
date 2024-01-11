@@ -1,15 +1,141 @@
-/* :root{
-    --bg-color:#222327;
-    --text-color:#fff;
-    --main-color:#29fd53;
+:root{
+    --color-1:#5C02AB;
+    --color-2:#7302D5;
+    --color-3:#010001;
+    --color-4:#17012B;
+    --color-5:#2E0156;
 }
-
-.logo{
-    width: 100px;
+nav {
+	width: 100%;
+	padding: 10px 0;
+	z-index: 12;
+    background-color: #2E0156;
+}
+nav .menu {
+	max-width: 1200px;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px;
+}
+.menu .logo img {
+	width: 100px;
     height: 100px;
 }
-.logo img{
-    width: 100%;
-    height: 100%;
-    background-color: red;
-} */
+
+.menu ul li {
+	list-style: none;
+}
+.menu ul li a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 500;
+	padding: 8px 15px;
+	border-radius: 50px;
+	transition: all 0.3s ease;
+}
+.menu ul li a:hover {
+	background-image: linear-gradient(to right, var(--color-1) , var(--color-2));
+	color: #fff;
+}
+.bi-person-fill{
+    font-size: 50px;
+}
+.checkbtn{
+	font-size: 30px;
+	color: white;
+	float: right;
+	line-height: normal;
+	cursor: pointer;
+	display: none;
+}
+#check{
+	display: none;
+}
+.MobNavBtns2 {
+    align-self: first baseline;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+    color: white;
+}
+.bi{
+    color: white;
+}
+nav form input{
+    border-radius: 10px;
+    border: white 2px solid;
+    background-color: inherit;
+    color: white;
+	width: 80%;
+}
+@media (min-width: 992px){
+	nav form input{
+		width: auto;
+	}
+	.menu ul {
+		display: flex;
+		justify-content: center;
+	}
+    .menu ul li .MobNavBtns{
+        display: none;
+    }
+}
+
+@media (max-width: 992px){
+    .MobNavBtns2{
+        display: none;
+    }
+    .MobNavBtns{
+        display: block;
+    }
+	.menu ul li {
+		margin-left: 7px;
+		text-align: left;
+		padding-left: 60px;
+	}
+
+	.container {
+		width: 100%;
+	}
+
+	.NavBtns {
+		display: none;
+	}
+
+	.checkbtn{
+		display: block;
+	}
+
+	ul{
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		background-image: linear-gradient(to right, var(--color-3) , var(--color-4));
+		top: 0;
+		left: -100%;
+		text-align: center;
+		transition: all .5s;
+	}
+
+	nav ul li{
+		display: block;
+		margin: 20px 0;
+	}
+	
+	nav ul li a{
+		font-size: 20px;
+	}
+	
+	a:hover,a.active{
+		background: none;
+		color: #0082e6;
+	}
+	
+	#check:checked ~ ul{
+		left: -50px;
+	}
+}
