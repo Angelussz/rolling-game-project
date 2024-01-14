@@ -5,6 +5,9 @@
     --color-4:#17012B;
     --color-5:#2E0156;
 }
+body{
+	background-color: var(--color-2);
+}
 nav {
 	width: 100%;
 	padding: 10px 0;
@@ -72,6 +75,47 @@ nav form input{
     color: white;
 	width: 80%;
 }
+.submenu-plataforma{
+	background-color: var(--color-3);
+	color: white;
+	-webkit-text-stroke-width: .5px;
+	-webkit-text-stroke-color: var(--color-2);
+}
+.submenu-plataforma ul li{
+	list-style: none;
+}
+.submenu-plataforma a{
+	text-decoration: none;
+	color: white;
+	-webkit-text-stroke-width: .5px;
+	-webkit-text-stroke-color: var(--color-2);
+	display: block;
+}
+.submenu-plataforma a:hover{
+	background-color: #ffffffad;
+}
+
+.submenu-plataforma li ul{
+	padding: 0;
+	display: none;
+	background-color: var(--color-3);
+	position: absolute;
+}
+.submenu-plataforma li ul li{
+	/* background-color: red; */
+	position: relative;
+	/* left: 78px;
+	top: 0px; */
+}
+.submenu-plataforma li ul li ul{
+	right: -65px;
+	top: 0;
+}
+.submenu-plataforma li:hover > ul{
+	display: block;
+	/* background-color: #ffffffad; */
+}
+
 @media (min-width: 992px){
 	nav form input{
 		width: auto;
@@ -110,7 +154,7 @@ nav form input{
 		display: block;
 	}
 
-	ul{
+	.menu ul{
 		position: fixed;
 		width: 100%;
 		height: 100vh;
