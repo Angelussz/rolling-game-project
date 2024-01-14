@@ -26,5 +26,12 @@
         "password":"password_daniel",
         "role":"admin",
         "favorites":[]
+    },
+    {
+        "user":"carlos perez",
+        "email":"carlos@gmail.com",
+        "password":"password_daniel",
+        "role":"user",
+        "favorites":[]
     }
 ]

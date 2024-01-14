@@ -96,10 +96,13 @@ export function validarInputRequerido(input) {
   }
   
   export function getRoleUserLog() {
-    const user = JSON.parse(sessionStorage.getItem("user"));
+    const {user,role} = JSON.parse(sessionStorage.getItem("user"));
   
     if (user !== null) {
-      return user.role;
+      return {
+        user,
+        role
+      };
     } else {
       return "invitado";
     }
