@@ -3,7 +3,15 @@ import { saveUserLog, getRoleUserLog } from "./hellpers.js";
 let inputEmail = document.getElementById("email");
 let inputPassword = document.getElementById("password");
 let formLogin = document.getElementById("formLogin");
+
 let adminLi = document.getElementById("adminLi");
+let favoriteLi = document.getElementById("favoriteLi")
+
+
+let LoginButton = document.querySelectorAll("#LogInButton");
+let userName = document.querySelectorAll("#userName");
+let logOutButton = document.querySelectorAll("#logOutButton");
+
 formLogin.addEventListener("submit", Login);
 
 CheckOrSaveAdmin();
@@ -21,13 +29,15 @@ function Login(e) {
         const savedUser = {
           email: usuarioEncontrado.email,
           role: usuarioEncontrado.role,
+          user: usuarioEncontrado.user,
         };
+        // console.log(savedUser)
         saveUserLog(savedUser);
         checkAdmin(adminLi);
         formLogin.reset();
 
-        // document.querySelector('.btn.btn-secondary[data-bs-dismiss="modal"]').click()
-        $("#exampleModal").modal("hide");
+        document.querySelector('.btn.btn-secondary[data-bs-dismiss="modal"]').click()
+        // $("#exampleModal").modal("hide");
       } else {
         console.log("Email o password incorrectos");
       }
@@ -42,15 +52,35 @@ function Login(e) {
 window.LogOut = function () {
   sessionStorage.removeItem("user");
   adminLi.className = "nav-item d-none";
+  favoriteLi.className = "nav-item d-none";
+
+  LoginButton[0].className = "d-block nav-link custom-bg-a mx-2 px-1 rounded";
+  LoginButton[1].className = "d-block nav-link custom-bg-a mx-2 px-1 rounded";
+
+  logOutButton[0].className = "nav-link custom-bg-a mx-2 px-1 rounded d-none";
+  logOutButton[1].className = "nav-link custom-bg-a mx-2 px-1 rounded d-none";
+
+
   window.location.replace("/index.html");
 };
 
 export function checkAdmin(adminLi) {
-  const role = getRoleUserLog();
-
-  if (role === "Admin") {
+  const {role,user} = getRoleUserLog();
+  console.log(role)
+  if (role === "admin") {
+    console.log("entra para adminLi")
     adminLi.className = "nav-item";
   }
+  else if (role === "user") {
+    favoriteLi.className = "nav-item";
+  }
+  LoginButton[0].className = "d-none nav-link custom-bg-a mx-2 px-1 rounded";
+  LoginButton[1].className = "d-none nav-link custom-bg-a mx-2 px-1 rounded";
+
+  logOutButton[0].className = "nav-link custom-bg-a mx-2 px-1 rounded d-block";
+  logOutButton[1].className = "nav-link custom-bg-a mx-2 px-1 rounded d-block";
+  userName[0].textContent = user;
+  userName[1].textContent = user;
 }
 
 function CheckOrSaveAdmin() {

@@ -96,10 +96,10 @@ export function ObtenerCodigoAleatorio() {
 }
 
 export function getRoleUserLog() {
-  const user = JSON.parse(sessionStorage.getItem("user"));
+  const {role,user} = JSON.parse(sessionStorage.getItem("user"));
 
   if (user !== null) {
-    return user.role;
+    return {role,user};
   } else {
     return "invitado";
   }

@@ -41,16 +41,17 @@
               class="d-flex flex-column justify-content-center align-items-center"
             >
               <i class="bi bi-person" style="font-size: 50px"></i>
-              <p>Name User</p>
+              <p id="userName">Name User</p>
             </div>
             <a
               class="nav-link custom-bg-a mx-2 px-1 rounded"
+              id="LogInButton"
               href="#"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
               >logIn</a
             >
-            <a class="nav-link custom-bg-a mx-2 px-1 rounded" href="#"
+            <a class="nav-link custom-bg-a mx-2 px-1 rounded d-none" id="logOutButton" href="#" onclick="LogOut()"
               >LogOut</a
             >
           </div>
@@ -66,6 +67,9 @@
               </li>
               <li class="nav-item d-none" id="adminLi">
                 <a class="nav-link" href="./admin.html">Administración</a>
+              </li>
+              <li class="nav-item d-none" id="favoriteLi">
+                <a class="nav-link" href="./favorite.html">Favoritos</a>
               </li>
               <li class="nav-item dropdown d-lg-none">
                 <a
@@ -149,16 +153,17 @@
               class="d-flex flex-column justify-content-center align-items-center"
             >
               <i class="bi bi-person" style="font-size: 50px"></i>
-              <p>Name User</p>
+              <p id="userName">Name User</p>
             </div>
             <a
               class="nav-link custom-bg-a mx-2 px-1 rounded"
+              id="LogInButton"
               href="#"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
-              >login</a
+              >logIn</a
             >
-            <a class="nav-link custom-bg-a mx-2 px-1 rounded" href="#"
+            <a class="nav-link custom-bg-a mx-2 px-1 rounded d-none" id="logOutButton" href="#" onclick="LogOut()"
               >LogOut</a
             >
           </div>
@@ -256,5 +261,6 @@
       </nav>
     </header>
     <script src="./js/bootstrap.bundle.js"></script>
+    <script src="./js/user.js" type="module"></script>
   </body>
 </html>
