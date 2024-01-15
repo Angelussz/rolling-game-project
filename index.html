@@ -13,67 +13,154 @@
   </head>
   <body>
     <header>
-      <nav>
-        <div class="menu">
-          <div class="logo">
+      <nav class="navbar navbar-expand-lg navbar-dark custom-bg-nav">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="./index.html">
             <img
               src="./resource/images/rolling_games_Logo_PNG.png"
+              style="width: 70px"
               alt="Rolling Games Logo"
             />
-          </div>
-          <!-- Menu -->
-          <input type="checkbox" id="check" />
-          <label for="check" class="checkbtn">
-            <i class="bi bi-list"></i>
-          </label>
-          <ul>
-            <li>
-              <div class="MobNavBtns">
-                <i class="bi bi-person-fill"></i>
-                <span style="color: white" id="user-name1" class="d-none"
-                  >user</span
-                >
-                <a
-                  class="nav-link"
-                  id="loginButton1"
-                  href="#"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                  >login</a
-                >
-                <a class="nav-link d-none" id="logout1" href="#" onclick="LogOut()">logout</a>
-              </div>
-            </li>
-            <li>
-              <form>
-                <label for="search"><i class="bi bi-search"></i></label>
-                <input type="text" name="search" id="search" />
-              </form>
-            </li>
-            <li><a href="#" id="adminLi" class="d-none">Administrador</a></li>
-            <li><a href="#" id="wishLi" class="d-none">Lista de deseos</a></li>
-            <!-- <li><a href="#">More</a></li> -->
-          </ul>
-          <!-- Menu Bar Code End -->
-
-          <!-- Header Button Code -->
-          <div class="MobNavBtns2">
+          </a>
+          <div
+            style="color: aliceblue"
+            class="d-lg-none align-items-center d-flex align-items-center"
+          >
             <div
               class="d-flex flex-column justify-content-center align-items-center"
             >
-              <i class="bi bi-person-fill"></i>
-              <span id="user-name2" class="d-none">user</span>
+              <i class="bi bi-person" style="font-size: 50px"></i>
+              <p>Name User</p>
             </div>
             <a
-              class="nav-link"
-              id="loginButton2"
+              class="nav-link custom-bg-a mx-2 px-1 rounded"
               href="#"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
-              style="margin-left: 10px"
+              >logIn</a
+            >
+            <a class="nav-link custom-bg-a mx-2 px-1 rounded" href="#"
+              >LogOut</a
+            >
+          </div>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./index.html"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item d-none" id="adminLi">
+                <a class="nav-link" href="./admin.html">Administración</a>
+              </li>
+              <li class="nav-item dropdown d-lg-none">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Por Genero
+                </a>
+                <ul class="dropdown-menu custom-bg-nav">
+                  <li>
+                    <a class="dropdown-item link-light" href="#">Accion</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item link-light" href="#">Aventura</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item link-light" href="#">Deportes</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown d-lg-none">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Por Precio
+                </a>
+                <ul class="dropdown-menu custom-bg-nav">
+                  <li>
+                    <a class="dropdown-item link-light" href="#"
+                      >Menos de 10 USD</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item link-light" href="#"
+                      >Menos de 25 USD</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item link-light" href="#"
+                      >Menis de 50 USD</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item d-lg-none">
+                <a class="nav-link" href="#">PC</a>
+              </li>
+              <li class="nav-item d-lg-none">
+                <a class="nav-link" href="#">PS4</a>
+              </li>
+              <li class="nav-item d-lg-none">
+                <a class="nav-link" href="#">XBOX</a>
+              </li>
+              <li class="nav-item">
+                <form class="d-flex" role="search">
+                  <input
+                    class="form-control me-2"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                  <button class="btn btn-outline-success" type="submit">
+                    Search
+                  </button>
+                </form>
+              </li>
+            </ul>
+          </div>
+          <div
+            style="color: aliceblue"
+            class="d-none align-items-center d-lg-flex align-items-center"
+          >
+            <div
+              class="d-flex flex-column justify-content-center align-items-center"
+            >
+              <i class="bi bi-person" style="font-size: 50px"></i>
+              <p>Name User</p>
+            </div>
+            <a
+              class="nav-link custom-bg-a mx-2 px-1 rounded"
+              href="#"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
               >login</a
             >
-            <a class="nav-link d-none" id="logout2" href="#" onclick="LogOut()">logout</a>
+            <a class="nav-link custom-bg-a mx-2 px-1 rounded" href="#"
+              >LogOut</a
+            >
           </div>
         </div>
         <!-- Modal -->
@@ -87,7 +174,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">LogIn</h1>
                 <button
                   type="button"
                   class="btn-close"
@@ -139,36 +226,35 @@
           </div>
         </div>
       </nav>
+      <nav class="subnav-filtro d-none d-lg-block">
+        <ul class="d-flex justify-content-around">
+          <li>
+            <a href="#">Categorias</a>
+            <ul>
+              <li>
+                <a href="#">Por Genero</a>
+                <ul>
+                  <li><a href="#">Accion</a></li>
+                  <li><a href="#">Aventura</a></li>
+                  <li><a href="#">Deportes</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Por Precio</a>
+                <ul>
+                  <li><a href="#">Menos de 10 USD</a></li>
+                  <li><a href="#">Menos de 25 USD</a></li>
+                  <li><a href="#">Menos de 50 USD</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">PC</a></li>
+          <li><a href="#">PS4</a></li>
+          <li><a href="#">XBOX</a></li>
+        </ul>
+      </nav>
     </header>
-    <section class="submenu-plataforma">
-      <ul class="d-flex flex-wrap justify-content-between p-1">
-        <li class="categoria"><a href="">Categorias</a>
-          <ul>
-            <li>
-              <a href="">Por genero</a>
-              <ul>
-                <li><a href="">Accion</a></li>
-                <li><a href="">Deportes</a></li>
-                <li><a href="">Aventura</a></li>
-              </ul> 
-            </li>
-            <li>
-              <a href="">Por precio</a>
-              <ul>
-                <li><a href="">Menor 10</a></li>
-                <li><a href="">Menor 25</a></li>
-                <li><a href="">Menor 50</a></li>
-              </ul>
-            </li>
-          </ul>        
-        </li>
-        <li>PC</li>
-        <li>PS4</li>
-        <li>XBOX</li>
-      </ul>
-    </section>
     <script src="./js/bootstrap.bundle.js"></script>
-    <script src="./js/navbar-rolling.js"></script>
-    <script src="./js/user.js" type="module"></script>
   </body>
 </html>
