@@ -14,7 +14,8 @@
       "memory": "8 GB de RAM",
       "grafic": "Gráficos: AMD® Radeon™ R9 380 (4GB) or Nvidia® GeForce™ GTX 950 (2GB)",
       "storage": "16 GB de espacio disponible"
-    }
+    },
+    "platforms":["PC","XBOX"]
   },
   {
     "code": 2,
@@ -31,7 +32,8 @@
       "memory": "6 GB de RAM",
       "grafic": "NVIDIA GeForce 450 or higher with 1GB Memory",
       "storage": "4 GB de espacio disponible"
-    }
+    },
+    "platforms":["PC"]
   },
   {
     "code": 3,
@@ -48,7 +50,8 @@
       "memory": "8 GB de RAM",
       "grafic": "NVIDIA GTX 550 Ti 2GB/AMD Radeon HD 7870 2GB or equivalent",
       "storage": "30 GB de espacio disponible"
-    }
+    },
+    "platforms":["XBOX"]
   },
   {
     "code": 4,
@@ -65,7 +68,8 @@
       "memory": "4 GB de RAM",
       "grafic": "Intel GMA X4500, NVIDIA GeForce 9600M GT, AMD/ATI Mobility Radeon HD 3650 - requires 256MB VRAM and DirectX® 11",
       "storage": "7 GB de espacio disponible"
-    }
+    },
+    "platforms":["PC","PS4"]
   },
   {
     "code": 5,
@@ -82,6 +86,7 @@
       "memory": "1 GB de RAM",
       "grafic": "DX10, DX11, DX12 capable.",
       "storage": "250 MB de espacio disponible"
-    }
+    },
+    "platforms":["PS4"]
   }
 ]
