@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+    <nav class="navbar bg-body-tertiary custom-navbar">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <a class="navbar-brand" href="../index.html">
+                        <img src="../resource/images/rolling_games_Logo_PNG.png" alt="Rolling Games" width="75"
+                            height="75">
+                    </a>
+                </div>
+                <div class="col mt-2">
+                    <a class="navbar-brand" href="../index.html">
+                        <img src="../resource/images/home_logo.png" alt="Home" width="50" height="50">
+                    </a>
+                </div>
+                <div class="col mt-2">
+                    <a class="navbar-brand" href="../index.html">
+                        <img src="../resource/images/config_logo.png" alt="Config" width="50" height="50">
+                    </a>
+                </div>
+                <div class="col mt-2">
+                    <a class="navbar-brand" href="../index.html">
+                        <img src="../resource/images/icon.png" alt="Icon" width="50" height="50">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container mt-4">
+        <div class="text-center">
+            <h1 class="mb-4">Administrar Productos</h1>
+        </div>
+
+
+        <form>
+            <div class="mb-3 row">
+                <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputName">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="inputPrice" class="col-sm-2 col-form-label">Precio</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="inputPrice">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="inputCategory" class="col-sm-2 col-form-label">Categoría</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputCategory">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="inputDescription" class="col-sm-2 col-form-label">Descripción</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="inputDescription" rows="3"></textarea>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="inputStock" class="col-sm-2 col-form-label">Cantidad en Stock</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="inputStock">
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">Guardar</button>
+                </div>
+                <div class="col-auto">
+                    <button type="button" class="btn btn-secondary mb-3"
+                        onclick="window.location.href='../index.html'">Cancelar</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="./js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
