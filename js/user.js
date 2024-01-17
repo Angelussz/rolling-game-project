@@ -98,3 +98,7 @@ function CheckOrSaveAdmin() {
     localStorage.setItem("users", JSON.stringify(users));
   }
 }
+window.reloaded = function (consola){
+  location.assign(`./filtro.html#${consola}`)
+  location.reload()
+}

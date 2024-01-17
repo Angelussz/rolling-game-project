@@ -6,7 +6,8 @@
     --color-5:#2E0156;
 }
 body{
-	background-color: var(--color-2);
+	background-color: var(--color-1);
+	color: white;
 }
 
 .custom-bg-nav{

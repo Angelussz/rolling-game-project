@@ -5,9 +5,9 @@
     --color-4:#17012B;
     --color-5:#2E0156;
 }
-body{
+/* body{
 	background-color: var(--color-2);
-}
+} */
 
 .custom-bg-nav{
 	background-color: var(--color-5);
