@@ -77,7 +77,7 @@
     "description": "¡El roguelike con manejo de inventario! Recoge objetos raros, organiza tu mochila y derrota a tus oponentes!",
     "price": "9.30",
     "stockQuantity": "14",
-    "category": ["estrategia", "fantasia", "construcción"],
+    "category": ["estrategia", "fantasia", "construcción","aventura"],
     "URLimage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNAOsqRiH1mEs08EvxeOamvPxXJvrx6SHGJQ",
     "requirements": {
       "general": "Requiere un procesador y un sistema operativo de 64 bits",
