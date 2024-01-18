@@ -9,27 +9,29 @@ const consoleMessage = {
   PS4: "Si eres fanático de las excelentes experiencias de juego, definitivamente deberías consultar los mejores títulos de juegos baratos de PS5 y PS4. Gracias a las claves de los juegos de Playstation de nuestra oferta, podrás conseguirlos a precios muy atractivos.",
 };
 
-const itemsByConsole = (tipe) => {
+const itemsBy = (tipe) => {
   const registerGames = JSON.parse(localStorage.getItem("games"));
   if (registerGames !== null) {
     if (registerGames.length > 0) {
-      const games = registerGames.filter((game) => {
-        if (game.platforms.find((console) => console === filtered)) {
-          return game;
-        }
-      });
-      console.log(games);
+      if(tipe === "consola"){
+        gamesPrint = registerGames.filter((game) => {
+          if (game.platforms.find((console) => console === filtered)) {
+            return game;
+          }
+        });
+      }
+      else if(tipe = "genero"){
+        gamesPrint = registerGames.filter((game) => {
+          if (game.category.find((gender) => gender=== filtered)) {
+            return game;
+          }
+        });
+      }
+      else{
+        console.log("adios")
+      }
       // console.log(filterItems)
-      games.forEach((game) => {
-        filterItems.innerHTML += `\n<div class="card" style="width: 18rem; background-color:#7302D5;color: white">
-          <img src="${game.URLimage}" class="card-img-top" alt="${game.name}">
-          <div class="card-body">
-            <h5 class="card-title">${game.name}</h5>
-            <p class="card-text">${game.description}</p>
-            <a href="#" class="btn btn-primary">Ver más</a>
-          </div>
-        </div>\n`;
-      });
+      
     } else {
       window.location.replace("../index.html");
     }
@@ -37,20 +39,29 @@ const itemsByConsole = (tipe) => {
     window.location.replace("../index.html");
   }
 };
-const itemsByGender = ()=>{
-  if (registerGames !== null) {
-    if (registerGames.length > 0) {
-
-    }
+const printList = (typelist) =>{
+  if(typelist == "consola"){
+    gamesPrint.forEach((game) => {
+      filterItems.innerHTML += `\n<div class="card" style="width: 18rem; background-color:#7302D5;color: white">
+        <img src="${game.URLimage}" class="card-img-top" alt="${game.name}">
+        <div class="card-body">
+          <h5 class="card-title">${game.name}</h5>
+          <p class="card-text">${game.description}</p>
+          <a href="#" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>\n`;
+    });
   }
 }
 const printTitleDescription = () => {
   titleEdit.textContent = filtered;
   if (filtered === "PC" || filtered === "PS4" || filtered === "XBOX") {
     descriptionEdit.textContent = consoleMessage[filtered];
-    itemsByConsole();
+    itemsBy("consola");
+    printList("consola");
   }else if(filtered === "accion" || filtered === "aventura" || filtered === "deportes"){
-
+    itemsBy("genero");
+    console.log(gamesPrint)
   } 
   else {
     location.assign("../");
