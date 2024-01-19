@@ -51,7 +51,11 @@
               data-bs-target="#exampleModal"
               >logIn</a
             >
-            <a class="nav-link custom-bg-a mx-2 px-1 rounded d-none" id="logOutButton" href="#" onclick="LogOut()"
+            <a
+              class="nav-link custom-bg-a mx-2 px-1 rounded d-none"
+              id="logOutButton"
+              href="#"
+              onclick="LogOut()"
               >LogOut</a
             >
           </div>
@@ -164,7 +168,11 @@
               data-bs-target="#exampleModal"
               >logIn</a
             >
-            <a class="nav-link custom-bg-a mx-2 px-1 rounded d-none" id="logOutButton" href="#" onclick="LogOut()"
+            <a
+              class="nav-link custom-bg-a mx-2 px-1 rounded d-none"
+              id="logOutButton"
+              href="#"
+              onclick="LogOut()"
               >LogOut</a
             >
           </div>
@@ -181,7 +189,13 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: black;">LogIn</h1>
+                <h1
+                  class="modal-title fs-5"
+                  id="exampleModalLabel"
+                  style="color: black"
+                >
+                  LogIn
+                </h1>
                 <button
                   type="button"
                   class="btn-close"
@@ -232,8 +246,7 @@
             </div>
           </div>
         </div>
-        
-        
+
         <div
           class="modal fade"
           id="modalSearch"
@@ -244,7 +257,13 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: black;">Angelo</h1>
+                <h1
+                  class="modal-title fs-5"
+                  id="exampleModalLabel"
+                  style="color: black"
+                >
+                  Angelo
+                </h1>
                 <button
                   type="button"
                   class="btn-close"
@@ -297,7 +316,7 @@
         </div>
       </nav>
       <nav class="subnav-filtro d-none d-lg-block">
-        <ul class="d-flex justify-content-around">
+        <ul class="d-flex justify-content-around my-0">
           <li>
             <a href="#">Categorias</a>
             <ul>
@@ -325,6 +344,43 @@
         </ul>
       </nav>
     </header>
+    <main>
+      <div
+        id="carouselExampleAutoplaying"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active bg-warning h-100" >
+            <img src="./resource/images/rolling_gamesLogo_fondo.png" class="d-block w-100 h-100" alt="Rolling Games Logo" />
+          </div>
+          <div class="carousel-item h-100">
+            <img src="./resource/images/psgames.jpeg" class="d-block w-100 h-100" alt="Play Station Publiciti" />
+          </div>
+          <div class="carousel-item h-100">
+            <img src="./resource/images/san-juan-festival.jpg" class="d-block w-100 h-100" alt="San Juan Festival Publicity" />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </main>
     <script src="./js/bootstrap.bundle.js"></script>
     <script src="./js/navbar.js"></script>
     <script src="./js/user.js" type="module"></script>

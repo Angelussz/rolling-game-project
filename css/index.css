@@ -61,3 +61,9 @@ body{
     
 	/* background-color: #ffffffad; */
 }
+
+/* Body main */
+.carousel-inner{
+	height: 60vw;
+	max-height: 450px;
+}
