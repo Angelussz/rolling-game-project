@@ -58,7 +58,6 @@ body{
 }
 .subnav-filtro li:hover > ul{
 	display: block;
-    
 	/* background-color: #ffffffad; */
 }
 

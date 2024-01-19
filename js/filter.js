@@ -43,12 +43,12 @@ const itemsBy = (tipe = "otros") => {
 };
 const printList = () => {
   gamesPrint.forEach((game) => {
-    filterItems.innerHTML += `\n<div class="card" style="width: 18rem; background-color:#7302D5;color: white">
-        <img src="${game.URLimage}" class="card-img-top" alt="${game.name}">
+    filterItems.innerHTML += `\n<div class="card my-2" style="width: 18rem; background-color:#7302D5;color: white">
+        <img src="${game.URLimage}" class="card-img-top" style="height:200px; text-overflow:elipsis" alt="${game.name}">
         <div class="card-body">
           <h5 class="card-title">${game.name}</h5>
-          <p class="card-text">${game.description}</p>
-          <a href="#" class="btn btn-primary">Ver más</a>
+          <p class="card-text mt-4">$ ${game.price}</p>
+          
         </div>
       </div>\n`;
   });
