@@ -11,32 +11,31 @@
 
 <body>
     <nav class="navbar bg-body-tertiary custom-navbar">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <a class="navbar-brand" href="../index.html">
-                        <img src="../resource/images/rolling_games_Logo_PNG.png" alt="Rolling Games" width="75"
-                            height="75">
-                    </a>
-                </div>
-                <div class="col mt-2">
-                    <a class="navbar-brand" href="../index.html">
-                        <img src="../resource/images/home_logo.png" alt="Home" width="50" height="50">
-                    </a>
-                </div>
-                <div class="col mt-2">
-                    <a class="navbar-brand" href="../index.html">
-                        <img src="../resource/images/config_logo.png" alt="Config" width="50" height="50">
-                    </a>
-                </div>
-                <div class="col mt-2">
-                    <a class="navbar-brand" href="../index.html">
-                        <img src="../resource/images/icon.png" alt="Icon" width="50" height="50">
-                    </a>
-                </div>
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <div class="d-flex">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../resource/images/rolling_games_Logo_PNG.png" alt="Rolling Games" width="75" height="75">
+                </a>
+                <a class="navbar-brand mt-2" href="../index.html">
+                    <img src="../resource/images/home_logo.png" alt="Home" width="50" height="50">
+                </a>
+                <a class="navbar-brand mt-2" href="../index.html">
+                    <img src="../resource/images/config_logo.png" alt="Config" width="50" height="50">
+                </a>
+                <a class="navbar-brand mt-2" href="../index.html">
+                    <img src="../resource/images/icon.png" alt="Icon" width="50" height="50">
+                </a>
+            </div>
+            <div>
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../resource/images/user.png" alt="RolIcon" width="50" height="50">
+                </a>
             </div>
         </div>
     </nav>
+
+
+
 
 
     <div class="container mt-4">
@@ -47,9 +46,24 @@
 
         <form>
             <div class="mb-3 row">
+                <label for="inputCode" class="col-sm-2 col-form-label">Codigo</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="inputCode">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
                 <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="inputName">
+                </div>
+            </div>
+
+
+            <div class="mb-3 row">
+                <label for="inputDescription" class="col-sm-2 col-form-label">Descripción</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="inputDescription" rows="3"></textarea>
                 </div>
             </div>
 
@@ -61,6 +75,13 @@
             </div>
 
             <div class="mb-3 row">
+                <label for="inputStock" class="col-sm-2 col-form-label">Cantidad en Stock</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="inputStock">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
                 <label for="inputCategory" class="col-sm-2 col-form-label">Categoría</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="inputCategory">
@@ -68,16 +89,16 @@
             </div>
 
             <div class="mb-3 row">
-                <label for="inputDescription" class="col-sm-2 col-form-label">Descripción</label>
+                <label for="inputImage" class="col-sm-2 col-form-label">Imagen</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" id="inputDescription" rows="3"></textarea>
+                    <input type="text" class="form-control" id="inputImage">
                 </div>
             </div>
 
             <div class="mb-3 row">
-                <label for="inputStock" class="col-sm-2 col-form-label">Cantidad en Stock</label>
+                <label for="inputRequirements" class="col-sm-2 col-form-label">Requerimientos</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" id="inputStock">
+                    <input type="text" class="form-control" id="inputRequirements">
                 </div>
             </div>
 
@@ -95,6 +116,7 @@
     </div>
 
     <script src="./js/bootstrap.bundle.js"></script>
+    <script src="../js/admin.js"></script>
 </body>
 
 </html>

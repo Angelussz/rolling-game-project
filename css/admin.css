@@ -1,3 +1,7 @@
 .custom-navbar {
   background-color: #2e0156 !important;
 }
+
+textarea {
+  resize: none;
+}
