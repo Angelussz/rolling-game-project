@@ -30,6 +30,7 @@ function Login(e) {
           email: usuarioEncontrado.email,
           role: usuarioEncontrado.role,
           user: usuarioEncontrado.user,
+          favorites: usuarioEncontrado.favorites,
         };
         // console.log(savedUser)
         saveUserLog(savedUser);
@@ -65,6 +66,9 @@ window.LogOut = function () {
 };
 
 export function checkAdmin(adminLi) {
+  if(getRoleUserLog() === "invitado"){
+    return
+  }
   const {role,user} = getRoleUserLog();
   console.log(role)
   if (role === "admin") {
