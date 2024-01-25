@@ -37,7 +37,8 @@ function Login(e) {
         checkAdmin(adminLi);
         formLogin.reset();
 
-        document.querySelector('.btn.btn-secondary[data-bs-dismiss="modal"]').click()
+        // document.querySelector('.btn.btn-secondary[data-bs-dismiss="modal"]').click()
+        location.reload()
         // $("#exampleModal").modal("hide");
       } else {
         console.log("Email o password incorrectos");
@@ -51,6 +52,14 @@ function Login(e) {
 }
 
 window.LogOut = function () {
+  const updateUSers = JSON.parse(localStorage.getItem("users"));
+  const actualUser = JSON.parse(sessionStorage.getItem("user"));
+  updateUSers.forEach(user =>{
+    if(user.email === actualUser.email){
+        user.favorites = actualUser.favorites;
+    }
+})
+localStorage.setItem("users",JSON.stringify(updateUSers));
   sessionStorage.removeItem("user");
   adminLi.className = "nav-item d-none";
   favoriteLi.className = "nav-item d-none";

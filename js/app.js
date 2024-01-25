@@ -15,7 +15,6 @@ let actualuser = getRoleUser();
 let adminLi=document.getElementById('adminLi');
 checkAdmin(adminLi);
 let cardProductos = document.getElementById("cardProductos");
-console.log(cardProductos);
 // console.log(JSON.parse(localStorage.getItem("games")) || [])
 window.favoriteGame = (codeGame)=>{
     const id = document.getElementById(`id-${codeGame}`)
@@ -47,13 +46,15 @@ function CrearCards() {
             <h5 class="card-title">${game.name}</h5>
             <p class="card-text">${game.description}</p>   
             <p class="card-text">$ ${game.price}</p>
-            <button onClick="favoriteGame(${game.code})" id="id-${game.code}">Me gusta</button>  
+            <button onClick="favoriteGame(${game.code})" id="id-${game.code}">Favoritos</button>  
           </div>
         </div>`;
     });
-    actualuser.favorites.forEach(idFavorites =>{
-        const actualCard = document.getElementById(`id-${idFavorites}`);
-        actualCard.className = "bg-danger"
-    })
+    if(actualuser){
+        actualuser.favorites.forEach(idFavorites =>{
+            const actualCard = document.getElementById(`id-${idFavorites}`);
+            actualCard.className = "bg-danger"
+        })
+    }
   };
   CrearCards();
