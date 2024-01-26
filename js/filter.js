@@ -55,7 +55,16 @@ const itemsBy = (tipe = "otros") => {
             return game;
           }
         });
-      } else {
+      } 
+      else if(typeof tipe === "number"){
+        gamesPrint = registerGames.filter((game) => {
+          if (game.price <= tipe) {
+            return game;
+          }
+        });
+        
+      }
+      else {
         gamesPrint = registerGames.filter((game) => {
           if (game.name.includes(filtered)) {
             return game;
@@ -100,7 +109,14 @@ const printTitleDescription = () => {
   ) {
     titleEdit.textContent = `Mejores juegos de ${filtered.toUpperCase()}`;
     itemsBy("genero");
-  } else {
+  } 
+  else if(!isNaN(parseInt(filtered))){
+    titleEdit.textContent = `Juegos a menos de ${filtered.toUpperCase()}`;
+    descriptionEdit.textContent = `Tus juegos favoritos a menos de $${filtered}`;
+    const precio = parseInt(filtered);
+    itemsBy(precio);
+  }
+  else {
     titleEdit.textContent = `${filtered.toUpperCase()}`;
     descriptionEdit.textContent = "";
     itemsBy();
