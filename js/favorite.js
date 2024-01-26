@@ -24,13 +24,13 @@ const allFavorites = () => {
 };
 let favoriteItems = allFavorites();
 window.deleteGame = (codeGame) => {
-    const userItems = JSON.parse(sessionStorage.getItem("user"));
-    userItems.favorites = userItems.favorites.filter(item=> item !== codeGame);
-    favoriteItems = favoriteItems.filter(item=> item.code !== codeGame);
-    saveUserLog(userItems);
-    favorites.innerHTML = "";
-    printList(favoriteItems);
-  };
+  const userItems = JSON.parse(sessionStorage.getItem("user"));
+  userItems.favorites = userItems.favorites.filter((item) => item !== codeGame);
+  favoriteItems = favoriteItems.filter((item) => item.code !== codeGame);
+  saveUserLog(userItems);
+  favorites.innerHTML = "";
+  printList(favoriteItems);
+};
 const printList = (gamesPrint) => {
   gamesPrint.forEach((game) => {
     favorites.innerHTML += `\n<div class="card m-3 card-main" style="width: 300px;">
@@ -45,5 +45,4 @@ const printList = (gamesPrint) => {
   });
 };
 
-
-printList(favoriteItems)
+printList(favoriteItems);
