@@ -18,12 +18,12 @@ let cardProductos = document.getElementById("cardProductos");
 window.favoriteGame = (codeGame) => {
   const id = document.getElementById(`id-${codeGame}`);
   if (actualuser) {
-    if (id.className === "bg-danger") {
-      id.className = "bg-light";
+    if (id.className === "bg-danger rounded") {
+      id.className = "bg-light rounded";
       actualuser.favorites.delete(codeGame);
     } else {
       actualuser.favorites.add(codeGame);
-      id.className = "bg-danger";
+      id.className = "bg-danger rounded";
     }
     actualuser.favorites = [...actualuser.favorites];
     saveUserLog(actualuser);
@@ -41,7 +41,7 @@ function CrearCards() {
             <h5 class="card-title">${game.name}</h5>
             <p class="card-text">${game.description}</p>   
             <p class="card-text">$ ${game.price}</p>
-            <button onClick="favoriteGame(${game.code})" id="id-${game.code}">Favoritos</button>  
+            <button onClick="favoriteGame(${game.code})" id="id-${game.code}" class="rounded"><i class="bi bi-heart text-black"></i></button>  
           </div>
         </div>`;
   });
