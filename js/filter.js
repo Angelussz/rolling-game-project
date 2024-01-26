@@ -66,7 +66,7 @@ const itemsBy = (tipe = "otros") => {
       }
       else {
         gamesPrint = registerGames.filter((game) => {
-          if (game.name.includes(filtered)) {
+          if (game.name.toLowerCase().includes(filtered.toLowerCase())) {
             return game;
           }
         });
