@@ -48,7 +48,7 @@ function CrearCards() {
   if (actualuser) {
     actualuser.favorites.forEach((idFavorites) => {
       const actualCard = document.getElementById(`id-${idFavorites}`);
-      actualCard.className = "bg-danger";
+      actualCard.className = "bg-danger rounded";
     });
   }
 }
