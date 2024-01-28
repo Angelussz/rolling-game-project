@@ -1,34 +1,21 @@
 class Game {
-  constructor(
-    codigo,
-    nombre,
-    descripcion,
-    precio,
-    stock,
-    categoria,
-    urlimg,
-    general,
-    sistemaOperativo,
-    procesador,
-    memoria,
-    grafica,
-    almacenamiento
-  ) {
-    this._code = codigo;
-    this._name = nombre;
-    this._description = descripcion;
-    this._price = precio;
-    this._stockQuantity = stock;
-    this._category = categoria;
-    this._image = urlimg;
-    this._general = general;
-    this._so = sistemaOperativo;
-    this._processor = procesador;
-    this._memory = memoria;
-    this._graphic = grafica;
-    this._storage = almacenamiento;
+  constructor(...args) {
+    [
+      this._code,
+      this._name,
+      this._description,
+      this._price,
+      this._stockQuantity,
+      this._category,
+      this._image,
+      this._general,
+      this._so,
+      this._processor,
+      this._memory,
+      this._graphic,
+      this._storage,
+    ] = args;
   }
-
   // Getters
   getCode() {
     return this._code;
@@ -137,32 +124,39 @@ class Game {
 
   // Método para guardar un juego en el localStorage
   saveToLocal() {
-    const existingGameData = localStorage.getItem(`${this._code}`);
+    const existingGameData = localStorage.getItem(this._code);
 
     if (existingGameData) {
       console.log(
         `La entrada con el código ${this._code} ya existe en el localStorage.`
       );
     } else {
-      localStorage.setItem(`${this._code}`, JSON.stringify(this));
+      localStorage.setItem(this._code, JSON.stringify(this));
     }
   }
-
   // Método para actualizar un juego en el localStorage
   updateLocal() {
-    let games = JSON.parse(localStorage.getItem("games")) || [];
-    const index = games.findIndex((game) => game._code === this._code);
-    if (index !== -1) {
-      games[index] = this.toJSON();
-      localStorage.setItem("games", JSON.stringify(games));
+    const existingGameData = localStorage.getItem(this._code);
+
+    if (existingGameData) {
+      localStorage.setItem(this._code, JSON.stringify(this));
+    } else {
+      console.log(
+        `La entrada con el código ${this._code} NO existe en el localStorage.`
+      );
     }
   }
-
   // Método para eliminar un juego del localStorage
   deleteLocal() {
-    let games = JSON.parse(localStorage.getItem(`${this._code}`)) || {};
-    delete games[this._code];
-    localStorage.setItem("games", JSON.stringify(games));
+    const existingGameData = localStorage.getItem(this._code);
+
+    if (existingGameData) {
+      localStorage.removeItem(this._code);
+    } else {
+      console.log(
+        `La entrada con el código ${this._code} NO existe en el localStorage.`
+      );
+    }
   }
 
   showFromLocal() {
@@ -182,39 +176,57 @@ class Game {
   }
 }
 
-// Crear una instancia de la clase Game
-const exampleGame = new Game(
-  "001",
-  "Ejemplo Game",
-  "Descripción del juego de ejemplo",
-  29.99,
-  100,
-  "Aventura",
-  "url_de_la_imagen.jpg",
-  "General info del juego",
-  "Windows 10",
-  "Intel Core i5",
-  "8GB RAM",
-  "NVIDIA GTX 1060",
-  "256GB SSD"
-);
-const exampleGame2 = new Game(
-  "002",
-  "Ejemplo Game",
-  "Descripción del juego de ejemplo",
-  29.99,
-  100,
-  "Aventura",
-  "url_de_la_imagen.jpg",
-  "General info del juego",
-  "Windows 10",
-  "Intel Core i5",
-  "8GB RAM",
-  "NVIDIA GTX 1060",
-  "256GB SSD"
-);
+function getElementValue(id) {
+  return document.getElementById(id).value.trim();
+}
 
-exampleGame.saveToLocal();
-exampleGame2.saveToLocal();
-exampleGame.showFromLocal();
-exampleGame2.showFromLocal();
+function createGameFromForm() {
+  const newGame = new Game(
+    getElementValue("inputCode"),
+    getElementValue("inputName"),
+    getElementValue("inputDescription"),
+    getElementValue("inputPrice"),
+    getElementValue("inputStock"),
+    getElementValue("inputCategory"),
+    getElementValue("inputImage"),
+    getElementValue("inputRequirementsGeneral"),
+    getElementValue("inputRequirementsSO"),
+    getElementValue("inputRequirementsProcessor"),
+    getElementValue("inputRequirementsMemory"),
+    getElementValue("inputRequirementsGraphic"),
+    getElementValue("inputRequirementsStorage")
+  );
+
+  newGame.saveToLocal();
+
+  return newGame;
+}
+
+function resetForm() {
+  const inputIds = [
+    "inputCode",
+    "inputName",
+    "inputDescription",
+    "inputPrice",
+    "inputStock",
+    "inputCategory",
+    "inputImage",
+    "inputRequirementsGeneral",
+    "inputRequirementsSO",
+    "inputRequirementsProcessor",
+    "inputRequirementsMemory",
+    "inputRequirementsGraphic",
+    "inputRequirementsStorage",
+  ];
+
+  inputIds.forEach((id) => {
+    document.getElementById(id).value = "";
+  });
+}
+
+document.querySelector("form").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const game = createGameFromForm();
+  resetForm();
+  console.log(game.showFromLocal());
+});
