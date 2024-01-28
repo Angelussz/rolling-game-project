@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  .equipo {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(#281c3e, #0f051d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .centro {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .rollingG {
+    font-size: 100px;
+    color: #dca5d4;
+    background-image: -webkit-linear-gradient(45deg, #dca5d4 0%, #673ab7 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .teamG {
+    color: #673ab7;
+    background-image: -webkit-linear-gradient(45deg, #673ab7 33%, #9c27b0 91%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-size: 80px;
+  }
+  
+  .team-content {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .box {
+    margin: 1em;
+    padding: 16px;
+    background: #1b1229;
+    border-radius: 15px;
+    transition: all .38s ease;
+  }
+  
+  .picture {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .name
+  {
+      color: white;
+  }
+  
+  .role
+  {
+      color: gray;
+  }
+  
