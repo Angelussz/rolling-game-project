@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/datails.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <title>Detalles</title>
+</head>
+
+<body>
+
+    <main>
+        <div id="game-principal" class="game-principal">
+            <div class="container">
+                <h1 id="gtitle" class="gtitle">Grand Theft Auto 5</h1>
+                <p id="description" class="description">GTA se trata de una serie de videojuegos de mundo abierto en el
+                    que los jugadores
+                    pueden controlar a un personaje en un ambiente urbano y realizar diversas actividades, como conducir
+                    vehículos, robar, luchar y realizar misiones.
+
+                    Esta es conocida, sobre todo, por su contenido violento y explícito, lo que ha generado desde hace
+                    años controversia y críticas.</p>
+                <button role="button" class="btn btn-dark btn-custom" data-bs-toggle="modal" data-bs-target="#miModal">
+                    <i class="fa-solid fa-screwdriver-wrench"></i> Ficha técnica
+                </button>
+                <!--INICIO DE MODAL-->
+                <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-dark">
+                        <div class="modal-content text-white bg-dark">
+                            <!-- MODAL CONTENT -->
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">REQUISITOS MÍNIMOS PARA PC</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h2>Requisitos Mínimos</h2>
+                                <li id="sO">Sistema operativo
+                                    Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit Service Pack 1, Windows Vista
+                                    64 Bit Service Pack 2
+                                </li>
+                                <li id="cpu">Procesador:
+                                    Intel Core 2 Quad CPU Q6600 @ 2.40GHz (4 CPUs) / AMD Phenom 9850 Quad-Core Processor
+                                    (4 CPUs) @ 2.5GHz
+                                </li>
+                                <li id="graphics">Tarjeta gráfica:NVIDIA 9800 GT 1GB / AMD HD 4870 1GB (DX 10, 10.1, 11)
+                                </li>
+                                <li id="ram">Memoria RAM:
+                                    4GB
+                                </li>
+                                <li id="disc">Espacio en disco duro:
+                                    65GB
+                                </li>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="bCompatibility" role="button" class="btn btn-dark">Compatibilidad: <i
+                        class="fa-brands fa-playstation"></i> <i class="fa-brands fa-xbox"></i> <i
+                        class="fa-solid fa-desktop"></i></button>
+
+                <button id="bPrice" role="button" class="btn btn-dark"><i
+                        class="fa-solid fa-cart-shopping"></i>$20usd</button>
+            </div>
+    </main>
+    <script src="https://kit.fontawesome.com/7533268fc6.js" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <script src="../js/details.js"></script>
+</body>
+
+</html>

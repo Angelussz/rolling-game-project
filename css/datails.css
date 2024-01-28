@@ -1,0 +1,50 @@
+.container
+{
+    width: 90%;
+    margin: auto;
+}
+
+.game-principal
+{
+    font-size: 16px;
+    min-height: 40.62em;
+    color:white;
+    background: linear-gradient(rgba(0,0,20,.50)0%,#000 100%), url(../resource/images/gtav.png);
+    background: cover;
+    margin-bottom: 0em;
+    display: flex;
+    align-items: end;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.game-principal .container
+{
+    margin: 0 auto;
+    margin-bottom: 8em;
+}
+
+.container .button1
+{
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 0.31em;
+    padding: 0.93em 1.87em;
+    color: white;
+    margin-right: 1.25em;
+    cursor: pointer;
+    transition: .3s ease all;
+}
+
+.container .i 
+{
+    margin-right: 1.25em;
+}
+
+.container .button1:hover
+{
+    background: white;
+    color:#000; 
+}
+
