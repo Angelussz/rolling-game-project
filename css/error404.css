@@ -1,0 +1,26 @@
+body
+{
+    background: rgb(80,2,171);
+    background: radial-gradient(circle, rgba(80,2,171,1) 32%, rgba(69,2,128,1) 67%, rgba(145,99,191,1) 97%);
+}
+.error-page
+{
+    font-weight: bold;
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+}
+
+.graphic
+{
+    width: 250px;
+}
+
+.Bbig
+{
+    margin-top: 2px;
+    font-size: 250px;
+    background: -webkit-linear-gradient(#7302D5, #923981,#000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
