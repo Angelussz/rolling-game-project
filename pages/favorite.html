@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/bootstrap.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <link rel="stylesheet" href="./css/index.css" />
-    <title>Rolling Games</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <title>FilterPage</title>
   </head>
   <body>
     <header>
@@ -26,9 +26,9 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-brand" href="./index.html">
+          <a class="navbar-brand" href="../index.html">
             <img
-              src="./resource/images/rolling_games_Logo_PNG.png"
+              src="../resource/images/rolling_games_Logo_PNG.png"
               style="width: 70px"
               alt="Rolling Games Logo"
             />
@@ -73,7 +73,7 @@
                 <a class="nav-link" href="./admin.html">Administración</a>
               </li>
               <li class="nav-item d-none" id="favoriteLi">
-                <a class="nav-link" href="./pages/favorite.html">Favoritos</a>
+                <a class="nav-link" href="./favorite.html">Favoritos</a>
               </li>
               <li class="nav-item dropdown d-lg-none">
                 <a
@@ -87,13 +87,25 @@
                 </a>
                 <ul class="dropdown-menu custom-bg-nav">
                   <li>
-                    <a class="dropdown-item link-light" href="./pages/filtro.html#accion">Accion</a>
+                    <a
+                      class="dropdown-item link-light"
+                      href="./filtro.html#accion"
+                      >Accion</a
+                    >
                   </li>
                   <li>
-                    <a class="dropdown-item link-light" href="#">Aventura</a>
+                    <a
+                      class="dropdown-item link-light"
+                      href="./filtro.html#aventura"
+                      >Aventura</a
+                    >
                   </li>
                   <li>
-                    <a class="dropdown-item link-light" href="#">Deportes</a>
+                    <a
+                      class="dropdown-item link-light"
+                      href="./filtro.html#deportes"
+                      >Deportes</a
+                    >
                   </li>
                 </ul>
               </li>
@@ -109,30 +121,30 @@
                 </a>
                 <ul class="dropdown-menu custom-bg-nav">
                   <li>
-                    <a class="dropdown-item link-light" href="./pages/filtro.html#10"
+                    <a class="dropdown-item link-light" href="./filtro.html#10"
                       >Menos de 10 USD</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item link-light" href="./pages/filtro.html#25"
+                    <a class="dropdown-item link-light" href="./filtro.html#25"
                       >Menos de 25 USD</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item link-light" href="./pages/filtro.html#50"
+                    <a class="dropdown-item link-light" href="./filtro.html#50"
                       >Menis de 50 USD</a
                     >
                   </li>
                 </ul>
               </li>
               <li class="nav-item d-lg-none">
-                <a class="nav-link" href="./pages/filtro.html#PC">PC</a>
+                <a class="nav-link" href="./filtro.html#PC">PC</a>
               </li>
               <li class="nav-item d-lg-none">
-                <a class="nav-link" href="./pages/filtro.html#PS4">PS4</a>
+                <a class="nav-link" href="./filtro.html#PS4">PS4</a>
               </li>
               <li class="nav-item d-lg-none">
-                <a class="nav-link" href="./pages/filtro.html#XBOX">XBOX</a>
+                <a class="nav-link" href="./filtro.html#XBOX">XBOX</a>
               </li>
               <li class="nav-item">
                 <form class="d-flex" role="search" id="searchForm">
@@ -176,7 +188,6 @@
               >LogOut</a
             >
           </div>
-          <!-- <button class="aaa" data-bs-target="#modalaaa" data-bs-toggle="modal">boton</button> -->
         </div>
         <!-- Modal -->
         <div
@@ -189,83 +200,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1
-                  class="modal-title fs-5"
-                  id="exampleModalLabel"
-                  style="color: black"
-                >
-                  LogIn
-                </h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <form id="formLogin">
-                  <div class="my-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input
-                      id="email"
-                      type="email"
-                      class="form-control"
-                      placeholder="Ingrese su email"
-                      minlength="1"
-                      maxlength="50"
-                      required
-                    />
-                  </div>
-                  <div class="my-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input
-                      id="password"
-                      type="text"
-                      class="form-control"
-                      placeholder="Ingrese su contraseña"
-                      minlength="1"
-                      maxlength="50"
-                      required
-                    />
-                  </div>
-                  <p class="d-none text-danger" id="incorrectMsg">* Contraseña o usurio incorrecto</p>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                      id="btnClose"
-                    >
-                      Cerrar
-                    </button>
-                    <button type="submit" class="btn btn-primary">
-                      Ingresar
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="modal fade"
-          id="modalSearch"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1
-                  class="modal-title fs-5"
-                  id="exampleModalLabel"
-                  style="color: black"
-                >
-                  Angelo
-                </h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">LogIn</h1>
                 <button
                   type="button"
                   class="btn-close"
@@ -318,16 +253,16 @@
         </div>
       </nav>
       <nav class="subnav-filtro d-none d-lg-block">
-        <ul class="d-flex justify-content-around my-0">
+        <ul class="d-flex justify-content-around">
           <li>
             <a href="#">Categorias</a>
             <ul>
               <li>
                 <a href="#">Por Genero</a>
                 <ul>
-                  <li><a href="./pages/filtro.html#accion">Accion</a></li>
-                  <li><a href="./pages/filtro.html#aventura">Aventura</a></li>
-                  <li><a href="./pages/filtro.html#deportes">Deportes</a></li>
+                  <li><a href="./filtro.html#accion">Accion</a></li>
+                  <li><a href="./filtro.html#aventura">Aventura</a></li>
+                  <li><a href="./filtro.html#deportes">Deportes</a></li>
                 </ul>
               </li>
               <li>
@@ -340,70 +275,20 @@
               </li>
             </ul>
           </li>
-          <li><a href="./pages/filtro.html#PC">PC</a></li>
-          <li><a href="./pages/filtro.html#PS4">PS4</a></li>
-          <li><a href="./pages/filtro.html#XBOX">XBOX</a></li>
+          <li><a href="./filtro.html#PC">PC</a></li>
+          <li><a href="./filtro.html#PS4">PS4</a></li>
+          <li><a href="./filtro.html#XBOX ">XBOX</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <div
-        id="carouselExampleAutoplaying"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div class="carousel-item active bg-warning h-100">
-            <img
-              src="./resource/images/rolling_gamesLogo_fondo.png"
-              class="d-block w-100 h-100"
-              alt="Rolling Games Logo"
-            />
-          </div>
-          <div class="carousel-item h-100">
-            <img
-              src="./resource/images/psgames.jpeg"
-              class="d-block w-100 h-100"
-              alt="Play Station Publiciti"
-            />
-          </div>
-          <div class="carousel-item h-100">
-            <img
-              src="./resource/images/san-juan-festival.jpg"
-              class="d-block w-100 h-100"
-              alt="San Juan Festival Publicity"
-            />
-          </div>
-        </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleAutoplaying"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleAutoplaying"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
       <section class="container my-5">
         <div class="my-5">
-          <h1>Catalogo Videojuegos</h1>
+          <h1 id="title" class="mx-2">Mis Favoritos</h1>
           <hr />
         </div>
         <section class="container">
-          <article
-            class="row d-flex justify-content-center"
-            id="cardProductos"
-          ></article>
+          <div id="favoriteItems" class="row justify-content-around"></div>
         </section>
       </section>
     </main>
@@ -411,7 +296,7 @@
       <div class="row">
         <div class="col">
           <img
-            src="./resource/images/rolling_games_Logo_PNG.png"
+            src="../resource/images/rolling_games_Logo_PNG.png"
             style="width: 70px"
             alt="Rolling Games Logo"
           />
@@ -419,19 +304,19 @@
         <div class="col d-sm-flex justify-content-between align-items-center">
           <a href="#"
             ><img
-              src="./resource/images/facebook-logo.png"
+              src="../resource/images/facebook-logo.png"
               class="r-sol"
               alt="facebook-logo"
           /></a>
           <a href="#"
             ><img
-              src="./resource/images/twitter-logo.png"
+              src="../resource/images/twitter-logo.png"
               class="r-sol"
               alt="twitter-logo"
           /></a>
           <a href="#"
             ><img
-              src="./resource/images/instagram-logo.png"
+              src="../resource/images/instagram-logo.png"
               class="r-sol"
               alt="instagram-logo"
           /></a>
@@ -445,9 +330,9 @@
         </div>
       </div>
     </footer>
-    <script src="./js/bootstrap.bundle.js"></script>
-    <script src="./js/navbar.js"></script>
-    <script src="./js/user.js" type="module"></script>
-    <script src="./js/app.js" type="module"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <script src="../js/user.js" type="module"></script>
+    <script type="module" src="../js/favorite.js"></script>
+    <script src="../js/navbar.js"></script>
   </body>
 </html>
