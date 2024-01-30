@@ -10,7 +10,8 @@ let favoriteLi = document.getElementById("favoriteLi");
 let LoginButton = document.querySelectorAll("#LogInButton");
 let userName = document.querySelectorAll("#userName");
 let logOutButton = document.querySelectorAll("#logOutButton");
-
+let logIncorrectMsg = document.getElementById("incorrectMsg");
+let btnClose = document.getElementById("btnClose")
 formLogin.addEventListener("submit", Login);
 
 CheckOrSaveAdmin();
@@ -41,6 +42,10 @@ function Login(e) {
         // $("#exampleModal").modal("hide");
       } else {
         console.log("Email o password incorrectos");
+        inputEmail.classList.add("border-danger");
+        inputPassword.classList.add("border-danger");
+        logIncorrectMsg.className = "text-danger"
+
       }
     } else {
       console.log("Email o password incorrectos");
