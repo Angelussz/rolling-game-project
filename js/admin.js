@@ -12,7 +12,8 @@ class Game {
     processor,
     memory,
     graphic,
-    storage
+    storage,
+    platform
   ) {
     this._code = code;
     this._name = name;
@@ -27,6 +28,7 @@ class Game {
     this._memory = memory;
     this._graphic = graphic;
     this._storage = storage;
+    this._platform = platform;
   }
 
   getCode() {
@@ -68,6 +70,9 @@ class Game {
   getStorage() {
     return this._storage;
   }
+  getPlatform() {
+    return this._platform;
+  }
 
   setCode(value) {
     this._code = value;
@@ -108,13 +113,12 @@ class Game {
   setStorage(value) {
     this._storage = value;
   }
+  setPlatform(value) {
+    this._platform = value;
+  }
 
   saveToLocal() {
-    if (localStorage.getItem(this._code)) {
-      console.log(
-        `La entrada con el código ${this._code} ya existe en el localStorage.`
-      );
-    } else {
+    if (!localStorage.getItem(this._code)) {
       localStorage.setItem(this._code, JSON.stringify(this));
     }
   }
@@ -126,9 +130,65 @@ class Game {
   deleteLocal() {
     localStorage.removeItem(this._code);
   }
+}
 
-  showFromLocal() {
-    console.log(JSON.stringify(this));
+function createGameFromForm(isNewGame) {
+  const prefix = isNewGame ? "inputNew" : "input";
+
+  const newGame = new Game(
+    getElementValue(`${prefix}Code`),
+    getElementValue(`${prefix}Name`),
+    getElementValue(`${prefix}Description`),
+    getElementValue(`${prefix}Price`),
+    getElementValue(`${prefix}Stock`),
+    getElementValue(`${prefix}Category`),
+    getElementValue(`${prefix}Image`),
+    getElementValue(`${prefix}RequirementsGeneral`),
+    getElementValue(`${prefix}RequirementsSO`),
+    getElementValue(`${prefix}RequirementsProcessor`),
+    getElementValue(`${prefix}RequirementsMemory`),
+    getElementValue(`${prefix}RequirementsGraphic`),
+    getElementValue(`${prefix}RequirementsStorage`),
+    getElementValue(`${prefix}Platform`)
+  );
+
+  newGame.saveToLocal();
+  return newGame;
+}
+
+function createButton(text, color, clickHandler) {
+  const button = document.createElement("button");
+  button.textContent = text;
+  button.classList.add("btn", `btn-${color}`, "btn-sm");
+  button.setAttribute("data-bs-toggle", "modal");
+  button.setAttribute("data-bs-target", `#${text.toLowerCase()}Modal`);
+  button.addEventListener("click", clickHandler);
+  return button;
+}
+
+function deleteGame(code) {
+  const localStorageItem = localStorage.getItem(code);
+
+  if (localStorageItem) {
+    const gameData = JSON.parse(localStorageItem);
+    new Game(...Object.values(gameData)).deleteLocal();
+  }
+}
+
+function getElementValue(id) {
+  const value = document.getElementById(id).value.trim();
+  return value;
+}
+
+function updateTableRow(updatedGame) {
+  const tableBody = document.getElementById("table-body");
+
+  for (let i = 0; i < tableBody.rows.length; i++) {
+    const row = tableBody.rows[i];
+    if (row.cells[0].textContent === updatedGame.getCode()) {
+      row.cells[1].textContent = updatedGame.getName();
+      break;
+    }
   }
 }
 
@@ -212,6 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
         inputRequirementsMemory: "Memory",
         inputRequirementsGraphic: "Graphic",
         inputRequirementsStorage: "Storage",
+        inputPlatform: "Platform",
       };
 
       for (const [fieldId, suffix] of Object.entries(formFields)) {
@@ -220,7 +281,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const deleteButton = createButton("Eliminar", "danger", () => {
-      console.log(`Abrir modal para eliminar juego con código ${key}`);
       document
         .getElementById("confirmarEliminar")
         .addEventListener("click", function () {
@@ -235,98 +295,25 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-function createGameFromForm() {
-  const newGame = new Game(
-    getElementValue("inputCode"),
-    getElementValue("inputName"),
-    getElementValue("inputDescription"),
-    getElementValue("inputPrice"),
-    getElementValue("inputStock"),
-    getElementValue("inputCategory"),
-    getElementValue("inputImage"),
-    getElementValue("inputRequirementsGeneral"),
-    getElementValue("inputRequirementsSO"),
-    getElementValue("inputRequirementsProcessor"),
-    getElementValue("inputRequirementsMemory"),
-    getElementValue("inputRequirementsGraphic"),
-    getElementValue("inputRequirementsStorage")
-  );
-
-  newGame.saveToLocal();
-  return newGame;
-}
-
-function resetForm() {
-  const inputIds = [
-    "inputCode",
-    "inputName",
-    "inputDescription",
-    "inputPrice",
-    "inputStock",
-    "inputCategory",
-    "inputImage",
-    "inputRequirementsGeneral",
-    "inputRequirementsSO",
-    "inputRequirementsProcessor",
-    "inputRequirementsMemory",
-    "inputRequirementsGraphic",
-    "inputRequirementsStorage",
-  ];
-
-  inputIds.forEach((id) => {
-    document.getElementById(id).value = "";
-  });
-}
-
-function createButton(text, color, clickHandler) {
-  const button = document.createElement("button");
-  button.textContent = text;
-  button.classList.add("btn", `btn-${color}`, "btn-sm");
-  button.setAttribute("data-bs-toggle", "modal");
-  button.setAttribute("data-bs-target", `#${text.toLowerCase()}Modal`);
-  button.addEventListener("click", clickHandler);
-  return button;
-}
-
-function deleteGame(code) {
-  new Game(
-    ...Object.values(JSON.parse(localStorage.getItem(code)))
-  ).deleteLocal();
-}
-
-function getElementValue(id) {
-  return document.getElementById(id).value.trim();
-}
-
 document
   .getElementById("saveButton")
   .addEventListener("click", function (event) {
     event.preventDefault();
 
-    const updatedGame = createGameFromForm();
+    const updatedGame = createGameFromForm(false);
 
     if (localStorage.getItem(updatedGame.getCode())) {
       updatedGame.updateLocal();
-      console.log(
-        `Datos actualizados para el juego con código ${updatedGame.getCode()}`
-      );
       location.reload();
-    } else {
-      console.log(
-        `El juego con código ${updatedGame.getCode()} no existe en el localStorage.`
-      );
     }
-    resetForm();
   });
 
-function updateTableRow(updatedGame) {
-  const tableBody = document.getElementById("table-body");
+document
+  .getElementById("crearJuegoButton")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
 
-  for (let i = 0; i < tableBody.rows.length; i++) {
-    const row = tableBody.rows[i];
-    if (row.cells[0].textContent === updatedGame.getCode()) {
-      row.cells[1].textContent = updatedGame.getName();
-      break;
-    }
-  }
-}
+    const newGame = createGameFromForm(true);
+    $("#crearJuegoModal").modal("hide");
+    location.reload();
+  });
