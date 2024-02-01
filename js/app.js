@@ -41,7 +41,8 @@ function CrearCards() {
             <h5 class="card-title">${game.name}</h5>
             <p class="card-text">${game.description}</p>   
             <p class="card-text">$ ${game.price}</p>
-            <button onClick="favoriteGame(${game.code})" id="id-${game.code}" class="rounded"><i class="bi bi-heart text-black"></i></button>  
+            <button onClick="favoriteGame(${game.code})" id="id-${game.code}" class="rounded"><i class="bi bi-heart text-black"></i></button>
+            <a href="./pages/details.html#${game.code}" class="btn btn-primary">Ver más</a>  
           </div>
         </div>`;
   });
