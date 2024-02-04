@@ -26,7 +26,7 @@ const backgroundImages = document.getElementById("game-principal");
 
 title.textContent = gamesF.name;
 description.textContent = gamesF.description;
-bPrice.textContent = `$ ${gamesF.price}`;
+bPrice.textContent = ` ${gamesF.price}`;
 bCompatibility.innerHTML = platformsIcons;
 sO.textContent = gamesF.requirements.SO;
 cpu.textContent = gamesF.requirements.processor;
