@@ -55,10 +55,14 @@ function CrearCards(arrayProductos) {
         </div>`;
   });
   if (actualuser) {
-    actualuser.favorites.forEach((idFavorites) => {
-      const actualCard = document.getElementById(`id-${idFavorites}`);
-      actualCard.className = "bg-danger rounded";
-    });
+    const printFavorites = [...actualuser.favorites]
+    arrayProductos.forEach((el)=>{
+      if(printFavorites.includes(el.code)){
+        const actualCard = document.getElementById(`id-${el.code}`);
+        actualCard.className = "bg-danger rounded";
+      }
+
+    })
   }
 }
 
