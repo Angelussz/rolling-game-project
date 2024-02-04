@@ -4,6 +4,11 @@ let adminLi = document.getElementById("adminLi");
 checkAdmin(adminLi);
 const games = JSON.parse(localStorage.getItem("games"));
 const loc = parseInt(location.hash.substring(1));
+// console.log(loc)
+if(isNaN(loc) || loc === ""){
+  location.replace("../index.html")
+  // console.log(loc)
+}
 const gamesF = games.find((game) => {
   return game.code === loc;
 });
@@ -30,7 +35,7 @@ const backgroundImages = document.getElementById("game-principal");
 
 title.textContent = gamesF.name;
 description.textContent = gamesF.description;
-bPrice.textContent = ` ${gamesF.price}`;
+bPrice.textContent = `$ ${gamesF.price}`;
 bCompatibility.innerHTML = platformsIcons;
 sO.textContent = gamesF.requirements.SO;
 cpu.textContent = gamesF.requirements.processor;
@@ -40,3 +45,7 @@ disc.textContent = gamesF.requirements.storage;
 backgroundImages.style.background = `linear-gradient(rgba(0,0,20,.50)0%,#000 100%),url(${gamesF.URLimage})`;
 backgroundImages.style.backgroundSize = `cover`;
 backgroundImages.style.backgroundPosition = `center`;
+
+bPrice.addEventListener("click",()=>{
+  location.replace("./Error404.html")
+})
