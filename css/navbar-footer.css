@@ -60,3 +60,7 @@
     
 	/* background-color: #ffffffad; */
 }
+
+ul.d-flex.justify-content-around {
+    margin-bottom: 0px !important;
+  }
