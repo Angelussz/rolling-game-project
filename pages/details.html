@@ -16,275 +16,341 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark custom-bg-nav">
-          <div class="container-fluid">
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="../index.html">
-              <img
-                src="../resource/images/rolling_games_Logo_PNG.png"
-                style="width: 70px"
-                alt="Rolling Games Logo"
-              />
-            </a>
-            <div
-              style="color: aliceblue"
-              class="d-lg-none align-items-center d-flex align-items-center"
-            >
-              <div
-                class="d-flex flex-column justify-content-center align-items-center"
-              >
-                <i class="bi bi-person" style="font-size: 50px"></i>
-                <p id="userName">Name User</p>
-              </div>
-              <a
-                class="nav-link custom-bg-a mx-2 px-1 rounded"
-                id="LogInButton"
-                href="#"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                >logIn</a
-              >
-              <a
-                class="nav-link custom-bg-a mx-2 px-1 rounded d-none"
-                id="logOutButton"
-                href="#"
-                onclick="LogOut()"
-                >LogOut</a
-              >
-            </div>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a
-                    class="nav-link active"
-                    aria-current="page"
-                    href="./index.html"
-                    >Inicio</a
-                  >
-                </li>
-                <li class="nav-item d-none" id="adminLi">
-                  <a class="nav-link" href="./admin.html">Administración</a>
-                </li>
-                <li class="nav-item d-none" id="favoriteLi">
-                  <a class="nav-link" href="./favorite.html">Favoritos</a>
-                </li>
-                <li class="nav-item dropdown d-lg-none">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Por Genero
-                  </a>
-                  <ul class="dropdown-menu custom-bg-nav">
-                    <li>
-                      <a
-                        class="dropdown-item link-light"
-                        href="./filtro.html#accion"
-                        >Accion</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="dropdown-item link-light"
-                        href="./filtro.html#aventura"
-                        >Aventura</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="dropdown-item link-light"
-                        href="./filtro.html#deportes"
-                        >Deportes</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown d-lg-none">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Por Precio
-                  </a>
-                  <ul class="dropdown-menu custom-bg-nav">
-                    <li>
-                      <a class="dropdown-item link-light" href="./filtro.html#10"
-                        >Menos de 10 USD</a
-                      >
-                    </li>
-                    <li>
-                      <a class="dropdown-item link-light" href="./filtro.html#25"
-                        >Menos de 25 USD</a
-                      >
-                    </li>
-                    <li>
-                      <a class="dropdown-item link-light" href="./filtro.html#50"
-                        >Menis de 50 USD</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item d-lg-none">
-                  <a class="nav-link" href="./filtro.html#PC">PC</a>
-                </li>
-                <li class="nav-item d-lg-none">
-                  <a class="nav-link" href="./filtro.html#PS4">PS4</a>
-                </li>
-                <li class="nav-item d-lg-none">
-                  <a class="nav-link" href="./filtro.html#XBOX">XBOX</a>
-                </li>
-                <li class="nav-item">
-                  <form class="d-flex" role="search" id="searchForm">
-                    <input
-                      class="form-control me-2"
-                      type="search"
-                      placeholder="Search"
-                      aria-label="Search"
-                      id="inputSearch"
-                    />
-                    <button class="btn btn-outline-success" type="submit">
-                      Search
-                    </button>
-                  </form>
-                </li>
-              </ul>
-            </div>
-            <div
-              style="color: aliceblue"
-              class="d-none align-items-center d-lg-flex align-items-center"
-            >
-              <div
-                class="d-flex flex-column justify-content-center align-items-center"
-              >
-                <i class="bi bi-person" style="font-size: 50px"></i>
-                <p id="userName">Name User</p>
-              </div>
-              <a
-                class="nav-link custom-bg-a mx-2 px-1 rounded"
-                id="LogInButton"
-                href="#"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                >logIn</a
-              >
-              <a
-                class="nav-link custom-bg-a mx-2 px-1 rounded d-none"
-                id="logOutButton"
-                href="#"
-                onclick="LogOut()"
-                >LogOut</a
-              >
-            </div>
-          </div>
-          <!-- Modal -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark custom-bg-nav">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="./index.html">
+          <img
+            src="../resource/images/rolling_games_Logo_PNG.png"
+            style="width: 70px"
+            alt="Rolling Games Logo"
+          />
+        </a>
+        <div
+          style="color: aliceblue"
+          class="d-lg-none align-items-center d-flex align-items-center"
+        >
           <div
-            class="modal fade"
-            id="exampleModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
+            class="d-flex flex-column justify-content-center align-items-center"
           >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">LogIn</h1>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <form id="formLogin">
-                    <div class="my-3">
-                      <label for="email" class="form-label">Email</label>
-                      <input
-                        id="email"
-                        type="email"
-                        class="form-control"
-                        placeholder="Ingrese su email"
-                        minlength="1"
-                        maxlength="50"
-                        required
-                      />
-                    </div>
-                    <div class="my-3">
-                      <label for="password" class="form-label">Contraseña</label>
-                      <input
-                        id="password"
-                        type="text"
-                        class="form-control"
-                        placeholder="Ingrese su contraseña"
-                        minlength="1"
-                        maxlength="50"
-                        required
-                      />
-                    </div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Cerrar
-                      </button>
-                      <button type="submit" class="btn btn-primary">
-                        Ingresar
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+            <i class="bi bi-person" style="font-size: 50px"></i>
+            <p id="userName">Name User</p>
           </div>
-        </nav>
-        <nav class="subnav-filtro d-none d-lg-block">
-          <ul class="d-flex justify-content-around">
-            <li>
-              <a href="#">Categorias</a>
-              <ul>
+          <a
+            class="nav-link custom-bg-a mx-2 px-1 rounded"
+            id="LogInButton"
+            href="#"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            >logIn</a
+          >
+          <a
+            class="nav-link custom-bg-a mx-2 px-1 rounded d-none"
+            id="logOutButton"
+            href="#"
+            onclick="LogOut()"
+            >LogOut</a
+          >
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="./index.html"
+                >Inicio</a
+              >
+            </li>
+            <li class="nav-item d-none" id="adminLi">
+              <a class="nav-link" href="./admin.html">Administración</a>
+            </li>
+            <li class="nav-item d-none" id="favoriteLi">
+              <a class="nav-link" href="./pages/favorite.html">Favoritos</a>
+            </li>
+            <li class="nav-item dropdown d-lg-none">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Por Genero
+              </a>
+              <ul class="dropdown-menu custom-bg-nav">
                 <li>
-                  <a href="#">Por Genero</a>
-                  <ul>
-                    <li><a href="./filtro.html#accion">Accion</a></li>
-                    <li><a href="./filtro.html#aventura">Aventura</a></li>
-                    <li><a href="./filtro.html#deportes">Deportes</a></li>
-                  </ul>
+                  <a class="dropdown-item link-light" href="../index.html#accion">Accion</a>
                 </li>
                 <li>
-                  <a href="#">Por Precio</a>
-                  <ul>
-                    <li><a href="./filtro.html#10">Menos de 10 USD</a></li>
-                    <li><a href="./filtro.html#25">Menos de 25 USD</a></li>
-                    <li><a href="./filtro.html#50">Menos de 50 USD</a></li>
-                  </ul>
+                  <a class="dropdown-item link-light" href="../index.html#aventura">Aventura</a>
+                </li>
+                <li>
+                  <a class="dropdown-item link-light" href="../index.html#deportes">Deportes</a>
                 </li>
               </ul>
             </li>
-            <li><a href="./filtro.html#PC">PC</a></li>
-            <li><a href="./filtro.html#PS4">PS4</a></li>
-            <li><a href="./filtro.html#XBOX ">XBOX</a></li>
+            <li class="nav-item dropdown d-lg-none">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Por Precio
+              </a>
+              <ul class="dropdown-menu custom-bg-nav">
+                <li>
+                  <a class="dropdown-item link-light" href="../index.html#10"
+                    >Menos de 10 USD</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item link-light" href="../index.html#25"
+                    >Menos de 25 USD</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item link-light" href="../index.html#50"
+                    >Menos de 50 USD</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link" href="../index.html#PC">PC</a>
+            </li>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link" href="../index.html#PS4">PS4</a>
+            </li>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link" href="../index.html#XBOX">XBOX</a>
+            </li>
+            <li class="nav-item">
+              <form class="d-flex" role="search" id="searchForm">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                  id="inputSearch"
+                />
+                <button class="btn btn-outline-success" type="submit">
+                  Search
+                </button>
+              </form>
+            </li>
           </ul>
-        </nav>
-    </header>
+        </div>
+        <div
+          style="color: aliceblue"
+          class="d-none align-items-center d-lg-flex align-items-center"
+        >
+          <div
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
+            <i class="bi bi-person" style="font-size: 50px"></i>
+            <p id="userName">Name User</p>
+          </div>
+          <a
+            class="nav-link custom-bg-a mx-2 px-1 rounded"
+            id="LogInButton"
+            href="#"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            >logIn</a
+          >
+          <a
+            class="nav-link custom-bg-a mx-2 px-1 rounded d-none"
+            id="logOutButton"
+            href="#"
+            onclick="LogOut()"
+            >LogOut</a
+          >
+        </div>
+        <!-- <button class="aaa" data-bs-target="#modalaaa" data-bs-toggle="modal">boton</button> -->
+      </div>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1
+                class="modal-title fs-5"
+                id="exampleModalLabel"
+                style="color: black"
+              >
+                LogIn
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                id="btnSecondaryClose"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="formLogin">
+                <div class="my-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    id="email"
+                    type="email"
+                    class="form-control"
+                    placeholder="Ingrese su email"
+                    minlength="1"
+                    maxlength="50"
+                    required
+                  />
+                </div>
+                <div class="my-3">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input
+                    id="password"
+                    type="text"
+                    class="form-control"
+                    placeholder="Ingrese su contraseña"
+                    minlength="1"
+                    maxlength="50"
+                    required
+                  />
+                </div>
+                <p class="d-none text-danger" id="incorrectMsg">* Contraseña o usuario incorrecto</p>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                    id="btnClose"
+                  >
+                    Cerrar
+                  </button>
+                  <button type="submit" class="btn btn-primary">
+                    Ingresar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="modalSearch"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1
+                class="modal-title fs-5"
+                id="exampleModalLabel"
+                style="color: black"
+              >
+                Angelo
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="formLogin">
+                <div class="my-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    id="email"
+                    type="email"
+                    class="form-control"
+                    placeholder="Ingrese su email"
+                    minlength="1"
+                    maxlength="50"
+                    required
+                  />
+                </div>
+                <div class="my-3">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input
+                    id="password"
+                    type="text"
+                    class="form-control"
+                    placeholder="Ingrese su contraseña"
+                    minlength="1"
+                    maxlength="50"
+                    required
+                  />
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Cerrar
+                  </button>
+                  <button type="submit" class="btn btn-primary">
+                    Ingresar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <nav class="subnav-filtro d-none d-lg-block">
+      <ul class="d-flex justify-content-around my-0">
+        <li>
+          <a href="#">Categorias</a>
+          <ul>
+            <li>
+              <a href="#">Por Genero</a>
+              <ul>
+                <li><a href="../index.html#accion">Accion</a></li>
+                <li><a href="../index.html#aventura">Aventura</a></li>
+                <li><a href="../index.html#deportes">Deportes</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Por Precio</a>
+              <ul>
+                <li><a href="../index.html#10">Menos de 10 USD</a></li>
+                <li><a href="../index.html#25">Menos de 25 USD</a></li>
+                <li><a href="../index.html#50">Menos de 50 USD</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../index.html#PC">PC</a></li>
+        <li><a href="../index.html#PS4">PS4</a></li>
+        <li><a href="../index.html#XBOX">XBOX</a></li>
+      </ul>
+    </nav>
+  </header>
     <main>
         <div id="game-principal" class="game-principal">
             <div class="container">

@@ -87,25 +87,13 @@
                 </a>
                 <ul class="dropdown-menu custom-bg-nav">
                   <li>
-                    <a
-                      class="dropdown-item link-light"
-                      href="./filtro.html#accion"
-                      >Accion</a
-                    >
+                    <a class="dropdown-item link-light" href="../index.html#accion">Accion</a>
                   </li>
                   <li>
-                    <a
-                      class="dropdown-item link-light"
-                      href="./filtro.html#aventura"
-                      >Aventura</a
-                    >
+                    <a class="dropdown-item link-light" href="../index.html#aventura">Aventura</a>
                   </li>
                   <li>
-                    <a
-                      class="dropdown-item link-light"
-                      href="./filtro.html#deportes"
-                      >Deportes</a
-                    >
+                    <a class="dropdown-item link-light" href="../index.html#deportes">Deportes</a>
                   </li>
                 </ul>
               </li>
@@ -121,30 +109,30 @@
                 </a>
                 <ul class="dropdown-menu custom-bg-nav">
                   <li>
-                    <a class="dropdown-item link-light" href="./filtro.html#10"
+                    <a class="dropdown-item link-light" href="../index.html#10"
                       >Menos de 10 USD</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item link-light" href="./filtro.html#25"
+                    <a class="dropdown-item link-light" href="../index.html#25"
                       >Menos de 25 USD</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item link-light" href="./filtro.html#50"
-                      >Menis de 50 USD</a
+                    <a class="dropdown-item link-light" href="../index.html#50"
+                      >Menos de 50 USD</a
                     >
                   </li>
                 </ul>
               </li>
               <li class="nav-item d-lg-none">
-                <a class="nav-link" href="./filtro.html#PC">PC</a>
+                <a class="nav-link" href="../index.html#PC">PC</a>
               </li>
               <li class="nav-item d-lg-none">
-                <a class="nav-link" href="./filtro.html#PS4">PS4</a>
+                <a class="nav-link" href="../index.html#PS4">PS4</a>
               </li>
               <li class="nav-item d-lg-none">
-                <a class="nav-link" href="./filtro.html#XBOX">XBOX</a>
+                <a class="nav-link" href="../index.html#XBOX">XBOX</a>
               </li>
               <li class="nav-item">
                 <form class="d-flex" role="search" id="searchForm">
@@ -188,6 +176,7 @@
               >LogOut</a
             >
           </div>
+          <!-- <button class="aaa" data-bs-target="#modalaaa" data-bs-toggle="modal">boton</button> -->
         </div>
         <!-- Modal -->
         <div
@@ -200,7 +189,84 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">LogIn</h1>
+                <h1
+                  class="modal-title fs-5"
+                  id="exampleModalLabel"
+                  style="color: black"
+                >
+                  LogIn
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  id="btnSecondaryClose"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form id="formLogin">
+                  <div class="my-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      id="email"
+                      type="email"
+                      class="form-control"
+                      placeholder="Ingrese su email"
+                      minlength="1"
+                      maxlength="50"
+                      required
+                    />
+                  </div>
+                  <div class="my-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input
+                      id="password"
+                      type="text"
+                      class="form-control"
+                      placeholder="Ingrese su contraseña"
+                      minlength="1"
+                      maxlength="50"
+                      required
+                    />
+                  </div>
+                  <p class="d-none text-danger" id="incorrectMsg">* Contraseña o usuario incorrecto</p>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                      id="btnClose"
+                    >
+                      Cerrar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                      Ingresar
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="modal fade"
+          id="modalSearch"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1
+                  class="modal-title fs-5"
+                  id="exampleModalLabel"
+                  style="color: black"
+                >
+                  Angelo
+                </h1>
                 <button
                   type="button"
                   class="btn-close"
@@ -253,31 +319,31 @@
         </div>
       </nav>
       <nav class="subnav-filtro d-none d-lg-block">
-        <ul class="d-flex justify-content-around">
+        <ul class="d-flex justify-content-around my-0">
           <li>
             <a href="#">Categorias</a>
             <ul>
               <li>
                 <a href="#">Por Genero</a>
                 <ul>
-                  <li><a href="./filtro.html#accion">Accion</a></li>
-                  <li><a href="./filtro.html#aventura">Aventura</a></li>
-                  <li><a href="./filtro.html#deportes">Deportes</a></li>
+                  <li><a href="../index.html#accion">Accion</a></li>
+                  <li><a href="../index.html#aventura">Aventura</a></li>
+                  <li><a href="../index.html#deportes">Deportes</a></li>
                 </ul>
               </li>
               <li>
                 <a href="#">Por Precio</a>
                 <ul>
-                  <li><a href="./pages/filtro.html#10">Menos de 10 USD</a></li>
-                  <li><a href="./pages/filtro.html#25">Menos de 25 USD</a></li>
-                  <li><a href="./pages/filtro.html#50">Menos de 50 USD</a></li>
+                  <li><a href="../index.html#10">Menos de 10 USD</a></li>
+                  <li><a href="../index.html#25">Menos de 25 USD</a></li>
+                  <li><a href="../index.html#50">Menos de 50 USD</a></li>
                 </ul>
               </li>
             </ul>
           </li>
-          <li><a href="./filtro.html#PC">PC</a></li>
-          <li><a href="./filtro.html#PS4">PS4</a></li>
-          <li><a href="./filtro.html#XBOX ">XBOX</a></li>
+          <li><a href="../index.html#PC">PC</a></li>
+          <li><a href="../index.html#PS4">PS4</a></li>
+          <li><a href="../index.html#XBOX">XBOX</a></li>
         </ul>
       </nav>
     </header>
