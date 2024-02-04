@@ -4,5 +4,5 @@ searchForm.addEventListener("submit", (e) => {
   // const valor = e.target.value;
   e.preventDefault();
   console.log(inputSearch.value);
-  location.assign(`#${inputSearch.value}`);
+  location.assign(`../index.html#${inputSearch.value}`);
 });

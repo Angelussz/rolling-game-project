@@ -83,8 +83,13 @@ window.LogOut = function () {
 
   logOutButton[0].className = "nav-link custom-bg-a mx-2 px-1 rounded d-none";
   logOutButton[1].className = "nav-link custom-bg-a mx-2 px-1 rounded d-none";
-
-  window.location.replace("/index.html");
+  let actualUrl = window.location.href;
+  if(actualUrl.includes("favorite.html") || actualUrl.includes("Administrador.html")){
+    window.location.replace("/index.html");
+  }
+  else{
+    location.reload();
+  }
 };
 
 export function checkAdmin(adminLi) {

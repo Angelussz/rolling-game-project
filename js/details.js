@@ -1,3 +1,7 @@
+import { checkAdmin } from "./user.js";
+let adminLi = document.getElementById("adminLi");
+
+checkAdmin(adminLi);
 const games = JSON.parse(localStorage.getItem("games"));
 const loc = parseInt(location.hash.substring(1));
 const gamesF = games.find((game) => {
