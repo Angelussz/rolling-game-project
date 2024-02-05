@@ -1,0 +1,49 @@
+main {
+  background: rgb(92, 2, 171);
+  background: linear-gradient(
+    90deg,
+    rgba(92, 2, 171, 1) 0%,
+    rgba(23, 1, 43, 1) 50%,
+    rgba(46, 1, 86, 1) 100%
+  );
+  padding: 20px;
+}
+
+main::after {
+  content: "";
+  background: inherit;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  width: 18rem;
+  margin-bottom: 20px;
+}
+
+.custom-card
+{
+  background-color: rgb(0, 0, 0) !important;
+}
+
+.card-body
+{
+  color: white !important;
+}
+
+@media (max-width: 767px) {
+  .card {
+    width: 100%;
+  }
+}
