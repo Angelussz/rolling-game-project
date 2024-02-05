@@ -254,8 +254,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const row = tableBody.insertRow();
     row.insertCell(0).textContent = key;
     row.insertCell(1).textContent = loadedGame.getName();
+    row.insertCell(2).textContent = loadedGame.getStockQuantity();
 
-    const actionCell = row.insertCell(2);
+    const actionCell = row.insertCell(3);
 
     const modifyButton = createButton("Modificar", "warning", () => {
       const formFields = {

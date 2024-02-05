@@ -1,6 +1,6 @@
 body {
   font-family: "Arial", sans-serif;
-  background-color: #33134e;
+  background-color: #d4d4d4;
 }
 textarea {
   resize: none;
@@ -11,7 +11,7 @@ textarea {
 }
 
 .text-center h1 {
-  color: #e3e3e4;
+  color: #2c074e;
 }
 
 .table {
