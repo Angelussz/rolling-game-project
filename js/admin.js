@@ -10,101 +10,101 @@ class Game {
     requirements,
     platforms
   ) {
-    this._code = code;
-    this._name = name;
-    this._description = description;
-    this._price = price;
-    this._stockQuantity = stockQuantity;
-    this._categories = categories;
-    this._URLimage = URLimage;
-    this._requirements = requirements;
-    this._platforms = platforms;
+    this.code = code;
+    this.name = name;
+    this.description = description;
+    this.price = price;
+    this.stockQuantity = stockQuantity;
+    this.categories = categories;
+    this.URLimage = URLimage;
+    this.requirements = requirements;
+    this.platforms = platforms;
   }
 
   getCode() {
-    return this._code;
+    return this.code;
   }
   getName() {
-    return this._name;
+    return this.name;
   }
   getDescription() {
-    return this._description;
+    return this.description;
   }
   getPrice() {
-    return this._price;
+    return this.price;
   }
   getStockQuantity() {
-    return this._stockQuantity;
+    return this.stockQuantity;
   }
   getCategory() {
-    return this._categories;
+    return this.categories;
   }
   getImage() {
-    return this._URLimage;
+    return this.URLimage;
   }
   getGeneral() {
-    return this._requirements.general;
+    return this.requirements.general;
   }
   getSo() {
-    return this._requirements.SO;
+    return this.requirements.SO;
   }
   getProcessor() {
-    return this._requirements.processor;
+    return this.requirements.processor;
   }
   getMemory() {
-    return this._requirements.memory;
+    return this.requirements.memory;
   }
   getGraphic() {
-    return this._requirements.graphic;
+    return this.requirements.graphic;
   }
   getStorage() {
-    return this._requirements.storage;
+    return this.requirements.storage;
   }
   getPlatform() {
-    return this._platforms;
+    return this.platforms;
   }
 
   setCode(value) {
-    this._code = value;
+    this.code = value;
   }
   setName(value) {
-    this._name = value;
+    this.name = value;
   }
   setDescription(value) {
-    this._description = value;
+    this.description = value;
   }
   setPrice(value) {
-    this._price = value;
+    this.price = value;
   }
   setStockQuantity(value) {
-    this._stockQuantity = value;
+    this.stockQuantity = value;
   }
   setCategory(value) {
-    this._categories = value;
+    this.categories = value;
   }
   setImage(value) {
-    this._URLimage = value;
+    this.URLimage = value;
   }
   setGeneral(value) {
-    this._requirements.general = value;
+    this.requirements.general = value;
   }
   setSo(value) {
-    this._requirements.SO = value;
+    this.requirements.SO = value;
   }
   setProcessor(value) {
-    this._requirements.processor = value;
+    this.requirements.processor = value;
   }
   setMemory(value) {
-    this._requirements.memory = value;
+    this.requirements.memory = value;
   }
   setGraphic(value) {
-    this._requirements.graphic = value;
+    this.requirements.graphic = value;
   }
   setStorage(value) {
-    this._requirements.storage = value;
+    this.requirements.storage = value;
   }
   setPlatform(value) {
-    this._platforms = value;
+    this.platforms = value;
   }
 }
 
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let juegoCreado = crearJuego();
 
       let existingGameIndex = arrGames.findIndex(
-        (g) => g._code === juegoCreado._code
+        (g) => g.code === juegoCreado.code
       );
       if (existingGameIndex !== -1) {
         alert("Ya existe un juego con el mismo código.");
@@ -194,13 +194,13 @@ document.addEventListener("DOMContentLoaded", function () {
     let row = tableBody.insertRow();
 
     let codeCell = row.insertCell();
-    codeCell.textContent = game._code;
+    codeCell.textContent = game.code;
 
     let nameCell = row.insertCell();
-    nameCell.textContent = game._name;
+    nameCell.textContent = game.name;
 
     let stockCell = row.insertCell();
-    stockCell.textContent = game._stockQuantity;
+    stockCell.textContent = game.stockQuantity;
 
     let actionsCell = row.insertCell();
 
@@ -210,34 +210,34 @@ document.addEventListener("DOMContentLoaded", function () {
     editButton.setAttribute("data-bs-toggle", "modal");
     editButton.setAttribute("data-bs-target", "#modificarModal");
     editButton.onclick = function () {
-      document.getElementById("inputCode").value = game._code;
-      document.getElementById("inputName").value = game._name;
-      document.getElementById("inputDescription").value = game._description;
-      document.getElementById("inputPrice").value = game._price;
-      document.getElementById("inputStock").value = game._stockQuantity;
+      document.getElementById("inputCode").value = game.code;
+      document.getElementById("inputName").value = game.name;
+      document.getElementById("inputDescription").value = game.description;
+      document.getElementById("inputPrice").value = game.price;
+      document.getElementById("inputStock").value = game.stockQuantity;
       document.getElementById("inputCategory").value = Array.isArray(
-        game._categories
+        game.categories
       )
-        ? game._categories.join(", ")
-        : game._categories;
-      document.getElementById("inputImage").value = game._URLimage;
+        ? game.categories.join(", ")
+        : game.categories;
+      document.getElementById("inputImage").value = game.URLimage;
       document.getElementById("inputRequirementsGeneral").value =
-        game._requirements.general;
+        game.requirements.general;
       document.getElementById("inputRequirementsSO").value =
-        game._requirements.SO;
+        game.requirements.SO;
       document.getElementById("inputRequirementsProcessor").value =
-        game._requirements.processor;
+        game.requirements.processor;
       document.getElementById("inputRequirementsMemory").value =
-        game._requirements.memory;
+        game.requirements.memory;
       document.getElementById("inputRequirementsGraphic").value =
-        game._requirements.graphic;
+        game.requirements.graphic;
       document.getElementById("inputRequirementsStorage").value =
-        game._requirements.storage;
+        game.requirements.storage;
       document.getElementById("inputPlatform").value = Array.isArray(
-        game._platforms
+        game.platforms
       )
-        ? game._platforms.join(", ")
-        : game._platforms;
+        ? game.platforms.join(", ")
+        : game.platforms;
     };
     actionsCell.appendChild(editButton);
 
@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
     deleteButton.classList.add("btn", "btn-danger");
     deleteButton.onclick = function () {
       if (confirm("¿Estás seguro de que deseas eliminar este juego?")) {
-        let index = arrGames.findIndex((g) => g._code === game._code);
+        let index = arrGames.findIndex((g) => g.code === game.code);
         arrGames.splice(index, 1);
         localStorage.setItem("games", JSON.stringify(arrGames));
         row.remove();
@@ -276,21 +276,21 @@ document.getElementById("saveButton").addEventListener("click", function () {
   let newStorage = document.getElementById("inputRequirementsStorage").value;
   let newPlatform = document.getElementById("inputPlatform").value.split(",");
 
-  let gameIndex = arrGames.findIndex((g) => g._code === newCode);
+  let gameIndex = arrGames.findIndex((g) => g.code === newCode);
   if (gameIndex !== -1) {
-    arrGames[gameIndex]._name = newName;
-    arrGames[gameIndex]._description = newDescription;
-    arrGames[gameIndex]._price = newPrice;
-    arrGames[gameIndex]._stockQuantity = newStockQuantity;
-    arrGames[gameIndex]._categories = newCategories;
-    arrGames[gameIndex]._URLimage = newURLimage;
-    arrGames[gameIndex]._requirements.general = newGeneralRequirements;
-    arrGames[gameIndex]._requirements.SO = newSO;
-    arrGames[gameIndex]._requirements.processor = newProcessor;
-    arrGames[gameIndex]._requirements.memory = newMemory;
-    arrGames[gameIndex]._requirements.graphic = newGraphic;
-    arrGames[gameIndex]._requirements.storage = newStorage;
-    arrGames[gameIndex]._platforms = newPlatform;
+    arrGames[gameIndex].name = newName;
+    arrGames[gameIndex].description = newDescription;
+    arrGames[gameIndex].price = newPrice;
+    arrGames[gameIndex].stockQuantity = newStockQuantity;
+    arrGames[gameIndex].categories = newCategories;
+    arrGames[gameIndex].URLimage = newURLimage;
+    arrGames[gameIndex].requirements.general = newGeneralRequirements;
+    arrGames[gameIndex].requirements.SO = newSO;
+    arrGames[gameIndex].requirements.processor = newProcessor;
+    arrGames[gameIndex].requirements.memory = newMemory;
+    arrGames[gameIndex].requirements.graphic = newGraphic;
+    arrGames[gameIndex].requirements.storage = newStorage;
+    arrGames[gameIndex].platforms = newPlatform;
 
     localStorage.setItem("games", JSON.stringify(arrGames));
     location.reload();
@@ -302,5 +302,6 @@ document.getElementById("saveButton").addEventListener("click", function () {
 document
   .getElementById("crearJuegoModal")
   .addEventListener("shown.bs.modal", function (event) {
+    event.preventDefault();
     document.getElementById("inputNewCode").value = generarCodigoAleatorio();
   });
