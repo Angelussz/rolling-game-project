@@ -1,321 +1,936 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Administrador</title>
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/admin.css">
-</head>
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/admin.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/navbar-footer.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
 
-<body>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark custom-bg-nav">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">
+            <img
+              src="../resource/images/rolling_games_Logo_PNG.png"
+              style="width: 70px"
+              alt="Rolling Games Logo"
+            />
+          </a>
+          <div
+            style="color: aliceblue"
+            class="d-lg-none align-items-center d-flex align-items-center"
+          >
+            <div
+              class="d-flex flex-column justify-content-center align-items-center"
+            >
+              <i class="bi bi-person" style="font-size: 50px"></i>
+              <p id="userName">Name User</p>
+            </div>
+            <a
+              class="nav-link custom-bg-a mx-2 px-1 rounded"
+              id="LogInButton"
+              href="#"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              >logIn</a
+            >
+            <a
+              class="nav-link custom-bg-a mx-2 px-1 rounded d-none"
+              id="logOutButton"
+              href="#"
+              onclick="LogOut()"
+              >LogOut</a
+            >
+          </div>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../index.html"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item d-none" id="adminLi">
+                <a class="nav-link" href="./Admin.html">Administración</a>
+              </li>
+              <li class="nav-item d-none" id="favoriteLi">
+                <a class="nav-link" href="./pages/favorite.html">Favoritos</a>
+              </li>
+              <li class="nav-item dropdown d-lg-none">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Por Genero
+                </a>
+                <ul class="dropdown-menu custom-bg-nav">
+                  <li>
+                    <a
+                      class="dropdown-item link-light"
+                      href="../index.html#accion"
+                      >Accion</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item link-light"
+                      href="../index.html#aventura"
+                      >Aventura</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item link-light"
+                      href="../index.html#deportes"
+                      >Deportes</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown d-lg-none">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Por Precio
+                </a>
+                <ul class="dropdown-menu custom-bg-nav">
+                  <li>
+                    <a class="dropdown-item link-light" href="../index.html#10"
+                      >Menos de 10 USD</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item link-light" href="../index.html#25"
+                      >Menos de 25 USD</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item link-light" href="../index.html#50"
+                      >Menos de 50 USD</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item d-lg-none">
+                <a class="nav-link" href="../index.html#PC">PC</a>
+              </li>
+              <li class="nav-item d-lg-none">
+                <a class="nav-link" href="../index.html#PS4">PS4</a>
+              </li>
+              <li class="nav-item d-lg-none">
+                <a class="nav-link" href="../index.html#XBOX">XBOX</a>
+              </li>
+              <li class="nav-item">
+                <form class="d-flex" role="search" id="searchForm">
+                  <input
+                    class="form-control me-2"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    id="inputSearch"
+                  />
+                  <button class="btn btn-outline-success" type="submit">
+                    Search
+                  </button>
+                </form>
+              </li>
+            </ul>
+          </div>
+          <div
+            style="color: aliceblue"
+            class="d-none align-items-center d-lg-flex align-items-center"
+          >
+            <div
+              class="d-flex flex-column justify-content-center align-items-center"
+            >
+              <i class="bi bi-person" style="font-size: 50px"></i>
+              <p id="userName">Name User</p>
+            </div>
+            <a
+              class="nav-link custom-bg-a mx-2 px-1 rounded"
+              id="LogInButton"
+              href="#"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              >logIn</a
+            >
+            <a
+              class="nav-link custom-bg-a mx-2 px-1 rounded d-none"
+              id="logOutButton"
+              href="#"
+              onclick="LogOut()"
+              >LogOut</a
+            >
+          </div>
+          <!-- <button class="aaa" data-bs-target="#modalaaa" data-bs-toggle="modal">boton</button> -->
+        </div>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1
+                  class="modal-title fs-5"
+                  id="exampleModalLabel"
+                  style="color: black"
+                >
+                  LogIn
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  id="btnSecondaryClose"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form id="formLogin">
+                  <div class="my-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      id="email"
+                      type="email"
+                      class="form-control"
+                      placeholder="Ingrese su email"
+                      minlength="1"
+                      maxlength="50"
+                      required
+                    />
+                  </div>
+                  <div class="my-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input
+                      id="password"
+                      type="text"
+                      class="form-control"
+                      placeholder="Ingrese su contraseña"
+                      minlength="1"
+                      maxlength="50"
+                      required
+                    />
+                  </div>
+                  <p class="d-none text-danger" id="incorrectMsg">
+                    * Contraseña o usuario incorrecto
+                  </p>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                      id="btnClose"
+                    >
+                      Cerrar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                      Ingresar
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    
+        <div
+          class="modal fade"
+          id="modalSearch"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1
+                  class="modal-title fs-5"
+                  id="exampleModalLabel"
+                  style="color: black"
+                >
+                  Angelo
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form id="formLogin">
+                  <div class="my-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      id="email"
+                      type="email"
+                      class="form-control"
+                      placeholder="Ingrese su email"
+                      minlength="1"
+                      maxlength="50"
+                      required
+                    />
+                  </div>
+                  <div class="my-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input
+                      id="password"
+                      type="text"
+                      class="form-control"
+                      placeholder="Ingrese su contraseña"
+                      minlength="1"
+                      maxlength="50"
+                      required
+                    />
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Cerrar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                      Ingresar
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <nav class="subnav-filtro d-none d-lg-block">
+        <ul class="d-flex justify-content-around my-0">
+          <li>
+            <a href="#">Categorias</a>
+            <ul>
+              <li>
+                <a href="#">Por Genero</a>
+                <ul>
+                  <li><a href="../index.html#accion">Accion</a></li>
+                  <li><a href="../index.html#aventura">Aventura</a></li>
+                  <li><a href="../index.html#deportes">Deportes</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Por Precio</a>
+                <ul>
+                  <li><a href="../index.html#10">Menos de 10 USD</a></li>
+                  <li><a href="../index.html#25">Menos de 25 USD</a></li>
+                  <li><a href="../index.html#50">Menos de 50 USD</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../index.html#PC">PC</a></li>
+          <li><a href="../index.html#PS4">PS4</a></li>
+          <li><a href="../index.html#XBOX">XBOX</a></li>
+        </ul>
+      </nav>
+    </header>
+
     <main class="container">
+      <div class="my-5">
+        <div class="text-center">
+          <h1 class="mb-4">Administrar Producto</h1>
+        </div>
+
+        <div class="d-flex justify-content-center my-5">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#crearJuegoModal"
+          >
+            + Crear
+          </button>
+        </div>
         <div class="my-5">
-            <div class="text-center">
-                <h1 class="mb-4">Administrar Producto</h1>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Codigo</th>
+                  <th>Nombre</th>
+                  <th>Stock</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="crearJuegoModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="crearJuegoModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="crearJuegoModalLabel">
+                Crear Nuevo Juego
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="crearJuegoForm" action="#" method="post">
+                <div class="mb-3 row">
+                  <label for="inputNewCode" class="col-sm-2 col-form-label"
+                    >Codigo</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputNewCode"
+                      readonly
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="inputNewName" class="col-sm-2 col-form-label"
+                    >Nombre</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputNewName"
+                      minlength="3"
+                      maxlength="50"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label
+                    for="inputNewDescription"
+                    class="col-sm-2 col-form-label"
+                    >Descripción</label
+                  >
+                  <div class="col-sm-10">
+                    <textarea
+                      class="form-control"
+                      id="inputNewDescription"
+                      rows="3"
+                      minlength="10"
+                      maxlength="200"
+                      rows="3"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="inputNewPrice" class="col-sm-2 col-form-label"
+                    >Precio</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="inputNewPrice"
+                      minlength="1"
+                      maxlength="6"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="inputNewStock" class="col-sm-2 col-form-label"
+                    >Cantidad en Stock</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="inputNewStock"
+                      minlength="1"
+                      maxlength="6"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="inputNewCategory" class="col-sm-2 col-form-label"
+                    >Categoría</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputNewCategory"
+                      minlength="1"
+                      maxlength="30"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="inputNewImage" class="col-sm-2 col-form-label"
+                    >Imagen</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputNewImage"
+                      minlength="10"
+                      maxlength="200"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label
+                    for="inputNewRequirementsGeneral"
+                    class="col-sm-2 col-form-label"
+                    >Req. Generales</label
+                  >
+                  <div class="col-sm-10">
+                    <textarea
+                      type="text"
+                      class="form-control"
+                      id="inputNewRequirementsGeneral"
+                      minlength="10"
+                      maxlength="100"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label
+                    for="inputNewRequirementsSO"
+                    class="col-sm-2 col-form-label"
+                    >Sistema Operativo</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputNewRequirementsSO"
+                      minlength="5"
+                      maxlength="20"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label
+                    for="inputNewRequirementsProcessor"
+                    class="col-sm-2 col-form-label"
+                    >Procesador</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputNewRequirementsProcessor"
+                      minlength="5"
+                      maxlength="20"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label
+                    for="inputNewRequirementsMemory"
+                    class="col-sm-2 col-form-label"
+                    >Memoria</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputNewRequirementsMemory"
+                      minlength="1"
+                      maxlength="10"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label
+                    for="inputNewRequirementsGraphic"
+                    class="col-sm-2 col-form-label"
+                    >Gráficos</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputNewRequirementsGraphic"
+                      minlength="5"
+                      maxlength="10"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label
+                    for="inputNewRequirementsStorage"
+                    class="col-sm-2 col-form-label"
+                    >Almacenamiento</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputNewRequirementsStorage"
+                      minlength="5"
+                      maxlength="20"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="inputNewPlatform" class="col-sm-2 col-form-label"
+                    >Plataforma</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputNewPlatform"
+                      minlength="1"
+                      maxlength="10"
+                    />
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <div class="d-flex justify-content-center">
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      id="crearJuegoButton"
+                    >
+                      Crear Juego
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="modificarModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="modificarModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modificarModalLabel">
+                Modificar Producto
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="modificarForm">
+                <div class="mb-3 row">
+                  <label for="inputCode" class="col-sm-2 col-form-label"
+                    >Codigo</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputCode"
+                      readonly
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="inputName" class="col-sm-2 col-form-label"
+                    >Nombre</label
+                  >
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputName" />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="inputDescription" class="col-sm-2 col-form-label"
+                    >Descripción</label
+                  >
+                  <div class="col-sm-10">
+                    <textarea
+                      class="form-control"
+                      id="inputDescription"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="inputPrice" class="col-sm-2 col-form-label"
+                    >Precio</label
+                  >
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control" id="inputPrice" />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="inputStock" class="col-sm-2 col-form-label"
+                    >Cantidad en Stock</label
+                  >
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control" id="inputStock" />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="inputCategory" class="col-sm-2 col-form-label"
+                    >Categoría</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputCategory"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="inputImage" class="col-sm-2 col-form-label"
+                    >Imagen</label
+                  >
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputImage" />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label
+                    for="inputRequirementsGeneral"
+                    class="col-sm-2 col-form-label"
+                    >Req. Generales</label
+                  >
+                  <div class="col-sm-10">
+                    <textarea
+                      type="text"
+                      class="form-control"
+                      id="inputRequirementsGeneral"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label
+                    for="inputRequirementsSO"
+                    class="col-sm-2 col-form-label"
+                    >Sistema Operativo</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputRequirementsSO"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label
+                    for="inputRequirementsProcessor"
+                    class="col-sm-2 col-form-label"
+                    >Procesador</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputRequirementsProcessor"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label
+                    for="inputRequirementsMemory"
+                    class="col-sm-2 col-form-label"
+                    >Memoria</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputRequirementsMemory"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label
+                    for="inputRequirementsGraphic"
+                    class="col-sm-2 col-form-label"
+                    >Gráficos</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputRequirementsGraphic"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label
+                    for="inputRequirementsStorage"
+                    class="col-sm-2 col-form-label"
+                    >Almacenamiento</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputRequirementsStorage"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="inputPlatform" class="col-sm-2 col-form-label"
+                    >Plataforma</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputPlatform"
+                    />
+                  </div>
+                </div>
+              </form>
             </div>
 
-            <div class="d-flex justify-content-center my-5">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearJuegoModal">
-                    + Crear
+            <div class="modal-footer">
+              <div class="d-flex justify-content-center">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  data-bs-dismiss="modal"
+                  id="saveButton"
+                >
+                  Guardar
                 </button>
+              </div>
             </div>
-            <div class="my-5">
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Codigo</th>
-                                <th>Nombre</th>
-                                <th>Stock</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table-body">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+          </div>
         </div>
-
-        <div class="modal fade" id="crearJuegoModal" tabindex="-1" role="dialog" aria-labelledby="crearJuegoModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="crearJuegoModalLabel">Crear Nuevo Juego</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-
-                        <form id="crearJuegoForm" action="#" method="post">
-
-
-                            <div class="mb-3 row">
-                                <label for="inputNewCode" class="col-sm-2 col-form-label">Codigo</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputNewCode" readonly>
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputNewName" class="col-sm-2 col-form-label">Nombre</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputNewName" minlength="3"
-                                        maxlength="50" required>
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputNewDescription" class="col-sm-2 col-form-label">Descripción</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control" id="inputNewDescription" rows="3" minlength="10"
-                                        maxlength="200" rows="3" required></textarea>
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputNewPrice" class="col-sm-2 col-form-label">Precio</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="inputNewPrice" minlength="1"
-                                        maxlength="6" required>
-                                </div>
-
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputNewStock" class="col-sm-2 col-form-label">Cantidad en Stock</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="inputNewStock" minlength="1"
-                                        maxlength="6" required>
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputNewCategory" class="col-sm-2 col-form-label">Categoría</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputNewCategory" minlength="1"
-                                        maxlength="30" required>
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputNewImage" class="col-sm-2 col-form-label">Imagen</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputNewImage" minlength="10"
-                                        maxlength="200" required>
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputNewRequirementsGeneral" class="col-sm-2 col-form-label">Req.
-                                    Generales</label>
-                                <div class="col-sm-10">
-                                    <textarea type="text" class="form-control" id="inputNewRequirementsGeneral"
-                                        minlength="10" maxlength="100" required></textarea>
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputNewRequirementsSO" class="col-sm-2 col-form-label">Sistema
-                                    Operativo</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputNewRequirementsSO" minlength="5"
-                                        maxlength="20">
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputNewRequirementsProcessor"
-                                    class="col-sm-2 col-form-label">Procesador</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputNewRequirementsProcessor"
-                                        minlength="5" maxlength="20">
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputNewRequirementsMemory" class="col-sm-2 col-form-label">Memoria</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputNewRequirementsMemory"
-                                        minlength="1" maxlength="10">
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputNewRequirementsGraphic"
-                                    class="col-sm-2 col-form-label">Gráficos</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputNewRequirementsGraphic"
-                                        minlength="5" maxlength="10">
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputNewRequirementsStorage"
-                                    class="col-sm-2 col-form-label">Almacenamiento</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputNewRequirementsStorage"
-                                        minlength="5" maxlength="20">
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputNewPlatform" class="col-sm-2 col-form-label">Plataforma</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputNewPlatform" minlength="1"
-                                        maxlength="10">
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-primary" id="crearJuegoButton">Crear
-                                        Juego</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="modificarModal" tabindex="-1" role="dialog" aria-labelledby="modificarModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modificarModalLabel">Modificar Producto</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-
-                        <form id="modificarForm">
-
-                            <div class="mb-3 row">
-                                <label for="inputCode" class="col-sm-2 col-form-label">Codigo</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputCode" readonly>
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputName">
-                                </div>
-                            </div>
-
-
-                            <div class="mb-3 row">
-                                <label for="inputDescription" class="col-sm-2 col-form-label">Descripción</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control" id="inputDescription" rows="3"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputPrice" class="col-sm-2 col-form-label">Precio</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="inputPrice">
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputStock" class="col-sm-2 col-form-label">Cantidad en Stock</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="inputStock">
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputCategory" class="col-sm-2 col-form-label">Categoría</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputCategory">
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputImage" class="col-sm-2 col-form-label">Imagen</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputImage">
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputRequirementsGeneral" class="col-sm-2 col-form-label">Req.
-                                    Generales</label>
-                                <div class="col-sm-10">
-                                    <textarea type="text" class="form-control" id="inputRequirementsGeneral"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputRequirementsSO" class="col-sm-2 col-form-label">Sistema
-                                    Operativo</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputRequirementsSO">
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputRequirementsProcessor"
-                                    class="col-sm-2 col-form-label">Procesador</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputRequirementsProcessor">
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputRequirementsMemory" class="col-sm-2 col-form-label">Memoria</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputRequirementsMemory">
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputRequirementsGraphic" class="col-sm-2 col-form-label">Gráficos</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputRequirementsGraphic">
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputRequirementsStorage"
-                                    class="col-sm-2 col-form-label">Almacenamiento</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputRequirementsStorage">
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="inputPlatform" class="col-sm-2 col-form-label">Plataforma</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPlatform">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="modal-footer">
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
-                                id="saveButton">Guardar</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
+      </div>
     </main>
+    <footer class="container-fluid text-center">
+      <div class="row">
+        <div class="col">
+          <img
+            src="../resource/images/rolling_games_Logo_PNG.png"
+            style="width: 70px"
+            alt="Rolling Games Logo"
+          />
+        </div>
+        <div class="col d-sm-flex justify-content-between align-items-center">
+          <a href="#"
+            ><img
+              src="../resource/images/facebook-logo.png"
+              class="r-sol"
+              alt="facebook-logo"
+          /></a>
+          <a href="#"
+            ><img
+              src="../resource/images/twitter-logo.png"
+              class="r-sol"
+              alt="twitter-logo"
+          /></a>
+          <a href="#"
+            ><img
+              src="../resource/images/instagram-logo.png"
+              class="r-sol"
+              alt="instagram-logo"
+          /></a>
+        </div>
+        <div class="col d-sm-flex justify-content-center align-items-center">
+          <a
+            href="./aboutUs.html"
+            class="link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+            >Acerca de nosotros</a
+          >
+        </div>
+      </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../js/bootstrap.bundle.js"></script>
-    <script src="../js/admin.js"></script>
-</body>
-
+    <script src="../js/admin.js" type="module"></script>
+    <script src="../js/user.js" type="module"></script>
+    <script src="../js/navbar.js"></script>
+  </body>
 </html>

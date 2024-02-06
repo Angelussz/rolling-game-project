@@ -1,3 +1,6 @@
+import { checkAdmin } from "./user.js";
+let adminLi = document.getElementById("adminLi");
+checkAdmin(adminLi);
 class Game {
   constructor(
     code,
