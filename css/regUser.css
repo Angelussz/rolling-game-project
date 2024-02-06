@@ -1,0 +1,22 @@
+.modal-body,
+.modal-footer,
+.modal-title,
+.modal-footer button {
+  color: black;
+}
+
+.modal-body {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.modal-footer button {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .modal-dialog {
+    max-width: 90%;
+    margin: 1rem auto;
+  }
+}
