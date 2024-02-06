@@ -1,5 +1,5 @@
 class Usuario {
-  constructor(usuario, correo, contraseña, role = "User", favorites = []) {
+  constructor(usuario, correo, contraseña, role = "user", favorites = []) {
     this.user = usuario;
     this.email = correo;
     this.password = contraseña;
