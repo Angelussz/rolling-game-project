@@ -64,3 +64,7 @@
 ul.d-flex.justify-content-around {
     margin-bottom: 0px !important;
   }
+
+.modal{
+    color: black;
+}
