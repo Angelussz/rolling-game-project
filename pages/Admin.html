@@ -10,304 +10,308 @@
 </head>
 
 <body>
-    <div class="container mt-5">
-        <div class="text-center">
-            <h1 class="mb-4">Administrar Producto</h1>
-        </div>
 
-        <div class="d-flex justify-content-center mb-3">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearJuegoModal">
-                + Crear
-            </button>
-        </div>
+    
+    <main class="container">
+        <div class="my-5">
+            <div class="text-center">
+                <h1 class="mb-4">Administrar Producto</h1>
+            </div>
 
-        <div class="container mt-5">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Nombre</th>
-                        <th>Stock</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body">
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="modal fade" id="crearJuegoModal" tabindex="-1" role="dialog" aria-labelledby="crearJuegoModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="crearJuegoModalLabel">Crear Nuevo Juego</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="d-flex justify-content-center my-5">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearJuegoModal">
+                    + Crear
+                </button>
+            </div>
+            <div class="my-5">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Nombre</th>
+                                <th>Stock</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                        </tbody>
+                    </table>
                 </div>
-                <div class="modal-body">
+            </div>
+        </div>
 
-                    <form id="crearJuegoForm">
-
-
-                        <div class="mb-3 row">
-                            <label for="inputNewCode" class="col-sm-2 col-form-label">Codigo</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputNewCode">
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="inputNewName" class="col-sm-2 col-form-label">Nombre</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputNewName">
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="inputNewDescription" class="col-sm-2 col-form-label">Descripción</label>
-                            <div class="col-sm-10">
-                                <textarea class="form-control" id="inputNewDescription" rows="3"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="inputNewPrice" class="col-sm-2 col-form-label">Precio</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" id="inputNewPrice">
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="inputNewStock" class="col-sm-2 col-form-label">Cantidad en Stock</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" id="inputNewStock">
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="inputNewCategory" class="col-sm-2 col-form-label">Categoría</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputNewCategory">
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="inputNewImage" class="col-sm-2 col-form-label">Imagen</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputNewImage">
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="inputNewRequirementsGeneral" class="col-sm-2 col-form-label">Req.
-                                Generales</label>
-                            <div class="col-sm-10">
-                                <textarea type="text" class="form-control" id="inputNewRequirementsGeneral"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="inputNewRequirementsSO" class="col-sm-2 col-form-label">Sistema
-                                Operativo</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputNewRequirementsSO">
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="inputNewRequirementsProcessor"
-                                class="col-sm-2 col-form-label">Procesador</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputNewRequirementsProcessor">
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="inputNewRequirementsMemory" class="col-sm-2 col-form-label">Memoria</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputNewRequirementsMemory">
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="inputNewRequirementsGraphic" class="col-sm-2 col-form-label">Gráficos</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputNewRequirementsGraphic">
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="inputNewRequirementsStorage"
-                                class="col-sm-2 col-form-label">Almacenamiento</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputNewRequirementsStorage">
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="inputNewPlatform" class="col-sm-2 col-form-label">Plataforma</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputNewPlatform">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary" id="crearJuegoButton">Crear Juego</button>
+        <div class="modal fade" id="crearJuegoModal" tabindex="-1" role="dialog" aria-labelledby="crearJuegoModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="crearJuegoModalLabel">Crear Nuevo Juego</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <div class="modal-body">
 
-    <div class="modal fade" id="modificarModal" tabindex="-1" role="dialog" aria-labelledby="modificarModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modificarModalLabel">Modificar Producto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+                        <form id="crearJuegoForm" action="#" method="post">
 
-                    <form id="modificarForm">
 
-                        <div class="mb-3 row">
-                            <label for="inputCode" class="col-sm-2 col-form-label">Codigo</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" id="inputCode" readonly>
+                            <div class="mb-3 row">
+                                <label for="inputNewCode" class="col-sm-2 col-form-label">Codigo</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputNewCode" readonly>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-3 row">
-                            <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputName">
+                            <div class="mb-3 row">
+                                <label for="inputNewName" class="col-sm-2 col-form-label">Nombre</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputNewName" minlength="3"
+                                        maxlength="50" required>
+                                </div>
                             </div>
-                        </div>
 
-
-                        <div class="mb-3 row">
-                            <label for="inputDescription" class="col-sm-2 col-form-label">Descripción</label>
-                            <div class="col-sm-10">
-                                <textarea class="form-control" id="inputDescription" rows="3"></textarea>
+                            <div class="mb-3 row">
+                                <label for="inputNewDescription" class="col-sm-2 col-form-label">Descripción</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" id="inputNewDescription" rows="3" minlength="10"
+                                        maxlength="200" rows="3" required></textarea>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-3 row">
-                            <label for="inputPrice" class="col-sm-2 col-form-label">Precio</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" id="inputPrice">
+                            <div class="mb-3 row">
+                                <label for="inputNewPrice" class="col-sm-2 col-form-label">Precio</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="inputNewPrice" minlength="1"
+                                        maxlength="6" required>
+                                </div>
+
                             </div>
-                        </div>
 
-                        <div class="mb-3 row">
-                            <label for="inputStock" class="col-sm-2 col-form-label">Cantidad en Stock</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" id="inputStock">
+                            <div class="mb-3 row">
+                                <label for="inputNewStock" class="col-sm-2 col-form-label">Cantidad en Stock</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="inputNewStock" minlength="1"
+                                        maxlength="6" required>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-3 row">
-                            <label for="inputCategory" class="col-sm-2 col-form-label">Categoría</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputCategory">
+                            <div class="mb-3 row">
+                                <label for="inputNewCategory" class="col-sm-2 col-form-label">Categoría</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputNewCategory" minlength="1"
+                                        maxlength="30" required>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-3 row">
-                            <label for="inputImage" class="col-sm-2 col-form-label">Imagen</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputImage">
+                            <div class="mb-3 row">
+                                <label for="inputNewImage" class="col-sm-2 col-form-label">Imagen</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputNewImage" minlength="10"
+                                        maxlength="200" required>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-3 row">
-                            <label for="inputRequirementsGeneral" class="col-sm-2 col-form-label">Req.
-                                Generales</label>
-                            <div class="col-sm-10">
-                                <textarea type="text" class="form-control" id="inputRequirementsGeneral"></textarea>
+                            <div class="mb-3 row">
+                                <label for="inputNewRequirementsGeneral" class="col-sm-2 col-form-label">Req.
+                                    Generales</label>
+                                <div class="col-sm-10">
+                                    <textarea type="text" class="form-control" id="inputNewRequirementsGeneral"
+                                        minlength="10" maxlength="100" required></textarea>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-3 row">
-                            <label for="inputRequirementsSO" class="col-sm-2 col-form-label">Sistema
-                                Operativo</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputRequirementsSO">
+                            <div class="mb-3 row">
+                                <label for="inputNewRequirementsSO" class="col-sm-2 col-form-label">Sistema
+                                    Operativo</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputNewRequirementsSO" minlength="5"
+                                        maxlength="20">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-3 row">
-                            <label for="inputRequirementsProcessor" class="col-sm-2 col-form-label">Procesador</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputRequirementsProcessor">
+                            <div class="mb-3 row">
+                                <label for="inputNewRequirementsProcessor"
+                                    class="col-sm-2 col-form-label">Procesador</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputNewRequirementsProcessor"
+                                        minlength="5" maxlength="20">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-3 row">
-                            <label for="inputRequirementsMemory" class="col-sm-2 col-form-label">Memoria</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputRequirementsMemory">
+                            <div class="mb-3 row">
+                                <label for="inputNewRequirementsMemory" class="col-sm-2 col-form-label">Memoria</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputNewRequirementsMemory"
+                                        minlength="1" maxlength="10">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-3 row">
-                            <label for="inputRequirementsGraphic" class="col-sm-2 col-form-label">Gráficos</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputRequirementsGraphic">
+                            <div class="mb-3 row">
+                                <label for="inputNewRequirementsGraphic"
+                                    class="col-sm-2 col-form-label">Gráficos</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputNewRequirementsGraphic"
+                                        minlength="5" maxlength="10">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-3 row">
-                            <label for="inputRequirementsStorage" class="col-sm-2 col-form-label">Almacenamiento</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputRequirementsStorage">
+                            <div class="mb-3 row">
+                                <label for="inputNewRequirementsStorage"
+                                    class="col-sm-2 col-form-label">Almacenamiento</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputNewRequirementsStorage"
+                                        minlength="5" maxlength="20">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-3 row">
-                            <label for="inputPlatform" class="col-sm-2 col-form-label">Plataforma</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputPlatform">
+                            <div class="mb-3 row">
+                                <label for="inputNewPlatform" class="col-sm-2 col-form-label">Plataforma</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputNewPlatform" minlength="1"
+                                        maxlength="10">
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
-                            id="saveButton">Guardar</button>
+                            <div class="modal-footer">
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-primary" id="crearJuegoButton">Crear
+                                        Juego</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </div>
 
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="eliminarModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="eliminarModalLabel">Eliminar Producto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>¿Estás seguro de que deseas eliminar este producto?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                        id="confirmarEliminar">Eliminar</button>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+
+        <div class="modal fade" id="modificarModal" tabindex="-1" role="dialog" aria-labelledby="modificarModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modificarModalLabel">Modificar Producto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form id="modificarForm">
+
+                            <div class="mb-3 row">
+                                <label for="inputCode" class="col-sm-2 col-form-label">Codigo</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputCode" readonly>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputName">
+                                </div>
+                            </div>
+
+
+                            <div class="mb-3 row">
+                                <label for="inputDescription" class="col-sm-2 col-form-label">Descripción</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" id="inputDescription" rows="3"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="inputPrice" class="col-sm-2 col-form-label">Precio</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="inputPrice">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="inputStock" class="col-sm-2 col-form-label">Cantidad en Stock</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="inputStock">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="inputCategory" class="col-sm-2 col-form-label">Categoría</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputCategory">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="inputImage" class="col-sm-2 col-form-label">Imagen</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputImage">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="inputRequirementsGeneral" class="col-sm-2 col-form-label">Req.
+                                    Generales</label>
+                                <div class="col-sm-10">
+                                    <textarea type="text" class="form-control" id="inputRequirementsGeneral"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="inputRequirementsSO" class="col-sm-2 col-form-label">Sistema
+                                    Operativo</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputRequirementsSO">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="inputRequirementsProcessor"
+                                    class="col-sm-2 col-form-label">Procesador</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputRequirementsProcessor">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="inputRequirementsMemory" class="col-sm-2 col-form-label">Memoria</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputRequirementsMemory">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="inputRequirementsGraphic" class="col-sm-2 col-form-label">Gráficos</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputRequirementsGraphic">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="inputRequirementsStorage"
+                                    class="col-sm-2 col-form-label">Almacenamiento</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputRequirementsStorage">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="inputPlatform" class="col-sm-2 col-form-label">Plataforma</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputPlatform">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                                id="saveButton">Guardar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../js/bootstrap.bundle.js"></script>

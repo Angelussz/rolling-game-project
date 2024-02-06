@@ -1,73 +1,69 @@
 body {
-  font-family: "Arial", sans-serif;
-  background-color: #d4d4d4;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 textarea {
   resize: none;
 }
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.text-center h1 {
-  color: #2c074e;
+  padding: 20px;
 }
 
 .table {
-  margin-top: 20px;
   width: 100%;
 }
 
-.table button {
-  margin-right: 5px;
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-#eliminarModal .modal-content {
-  background-color: #544b63;
-  color: #fff;
-}
-
-#eliminarModal .modal-title {
-  color: #fff;
-}
-
-#eliminarModal .modal-body p {
-  color: #fff;
-}
-
-#eliminarModal .modal-footer button {
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-}
-
-.modal-body form {
-  max-width: 100%;
-}
-
-#saveButton {
+.btn-primary {
   background-color: #28a745;
   color: #fff;
-  border: none;
-  border-radius: 10px;
 }
 
-.table button.btn-warning {
+.btn-primary:hover {
+  background-color: #218838;
+}
+
+.btn-warning {
   background-color: #007bff;
   color: #fff;
-  border: none;
-  border-radius: 10px;
 }
 
-@media (max-width: 576px) {
-  .text-center h1 {
-    font-size: 1.5em;
-  }
+.btn-warning:hover {
+  background-color: #0056b3;
+}
 
-  .table button {
-    margin-bottom: 5px;
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.modal-dialog {
+  max-width: 90%;
+}
+@media (max-width: 576px) {
+  .form-control,
+  .btn {
+    width: 100%;
   }
 }

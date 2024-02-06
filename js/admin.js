@@ -5,30 +5,20 @@ class Game {
     description,
     price,
     stockQuantity,
-    category,
-    image,
-    general,
-    so,
-    processor,
-    memory,
-    graphic,
-    storage,
-    platform
+    categories,
+    URLimage,
+    requirements,
+    platforms
   ) {
     this._code = code;
     this._name = name;
     this._description = description;
     this._price = price;
     this._stockQuantity = stockQuantity;
-    this._category = category;
-    this._image = image;
-    this._general = general;
-    this._so = so;
-    this._processor = processor;
-    this._memory = memory;
-    this._graphic = graphic;
-    this._storage = storage;
-    this._platform = platform;
+    this._categories = categories;
+    this._URLimage = URLimage;
+    this._requirements = requirements;
+    this._platforms = platforms;
   }
 
   getCode() {
@@ -47,31 +37,31 @@ class Game {
     return this._stockQuantity;
   }
   getCategory() {
-    return this._category;
+    return this._categories;
   }
   getImage() {
-    return this._image;
+    return this._URLimage;
   }
   getGeneral() {
-    return this._general;
+    return this._requirements.general;
   }
   getSo() {
-    return this._so;
+    return this._requirements.SO;
   }
   getProcessor() {
-    return this._processor;
+    return this._requirements.processor;
   }
   getMemory() {
-    return this._memory;
+    return this._requirements.memory;
   }
   getGraphic() {
-    return this._graphic;
+    return this._requirements.graphic;
   }
   getStorage() {
-    return this._storage;
+    return this._requirements.storage;
   }
   getPlatform() {
-    return this._platform;
+    return this._platforms;
   }
 
   setCode(value) {
@@ -90,231 +80,227 @@ class Game {
     this._stockQuantity = value;
   }
   setCategory(value) {
-    this._category = value;
+    this._categories = value;
   }
   setImage(value) {
-    this._image = value;
+    this._URLimage = value;
   }
   setGeneral(value) {
-    this._general = value;
+    this._requirements.general = value;
   }
   setSo(value) {
-    this._so = value;
+    this._requirements.SO = value;
   }
   setProcessor(value) {
-    this._processor = value;
+    this._requirements.processor = value;
   }
   setMemory(value) {
-    this._memory = value;
+    this._requirements.memory = value;
   }
   setGraphic(value) {
-    this._graphic = value;
+    this._requirements.graphic = value;
   }
   setStorage(value) {
-    this._storage = value;
+    this._requirements.storage = value;
   }
   setPlatform(value) {
-    this._platform = value;
-  }
-
-  saveToLocal() {
-    if (!localStorage.getItem(this._code)) {
-      localStorage.setItem(this._code, JSON.stringify(this));
-    }
-  }
-
-  updateLocal() {
-    localStorage.setItem(this._code, JSON.stringify(this));
-  }
-
-  deleteLocal() {
-    localStorage.removeItem(this._code);
+    this._platforms = value;
   }
 }
 
-function createGameFromForm(isNewGame) {
-  const prefix = isNewGame ? "inputNew" : "input";
+let gamesFromStorage = localStorage.getItem("games");
 
-  const newGame = new Game(
-    getElementValue(`${prefix}Code`),
-    getElementValue(`${prefix}Name`),
-    getElementValue(`${prefix}Description`),
-    getElementValue(`${prefix}Price`),
-    getElementValue(`${prefix}Stock`),
-    getElementValue(`${prefix}Category`),
-    getElementValue(`${prefix}Image`),
-    getElementValue(`${prefix}RequirementsGeneral`),
-    getElementValue(`${prefix}RequirementsSO`),
-    getElementValue(`${prefix}RequirementsProcessor`),
-    getElementValue(`${prefix}RequirementsMemory`),
-    getElementValue(`${prefix}RequirementsGraphic`),
-    getElementValue(`${prefix}RequirementsStorage`),
-    getElementValue(`${prefix}Platform`)
+let arrGames = gamesFromStorage ? JSON.parse(gamesFromStorage) : [];
+
+let codigoAleatorio = "";
+
+function generarCodigoAleatorio() {
+  const caracteres =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let codigo = "";
+  for (let i = 0; i < 6; i++) {
+    codigo += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+  }
+  codigoAleatorio = codigo;
+  return codigo;
+}
+
+function crearJuego() {
+  let code = generarCodigoAleatorio();
+  let name = document.getElementById("inputNewName").value;
+  let description = document.getElementById("inputNewDescription").value;
+  let price = parseFloat(document.getElementById("inputNewPrice").value);
+  let stockQuantity = parseInt(document.getElementById("inputNewStock").value);
+  let categories = document.getElementById("inputNewCategory").value.split(",");
+  let URLimage = document.getElementById("inputNewImage").value;
+  let generalRequirements = document.getElementById(
+    "inputNewRequirementsGeneral"
+  ).value;
+  let SO = document.getElementById("inputNewRequirementsSO").value;
+  let processor = document.getElementById(
+    "inputNewRequirementsProcessor"
+  ).value;
+  let memory = document.getElementById("inputNewRequirementsMemory").value;
+  let graphic = document.getElementById("inputNewRequirementsGraphic").value;
+  let storage = document.getElementById("inputNewRequirementsStorage").value;
+  let platform = document.getElementById("inputNewPlatform").value.split(",");
+
+  let game = new Game(
+    code,
+    name,
+    description,
+    price,
+    stockQuantity,
+    categories,
+    URLimage,
+    {
+      general: generalRequirements,
+      SO: SO,
+      processor: processor,
+      memory: memory,
+      graphic: graphic,
+      storage: storage,
+    },
+    platform
   );
 
-  newGame.saveToLocal();
-  return newGame;
+  return game;
 }
-
-function createButton(text, color, clickHandler) {
-  const button = document.createElement("button");
-  button.textContent = text;
-  button.classList.add("btn", `btn-${color}`, "btn-sm");
-  button.setAttribute("data-bs-toggle", "modal");
-  button.setAttribute("data-bs-target", `#${text.toLowerCase()}Modal`);
-  button.addEventListener("click", clickHandler);
-  return button;
-}
-
-function deleteGame(code) {
-  const localStorageItem = localStorage.getItem(code);
-
-  if (localStorageItem) {
-    const gameData = JSON.parse(localStorageItem);
-    new Game(...Object.values(gameData)).deleteLocal();
-  }
-}
-
-function getElementValue(id) {
-  const value = document.getElementById(id).value.trim();
-  return value;
-}
-
-function updateTableRow(updatedGame) {
-  const tableBody = document.getElementById("table-body");
-
-  for (let i = 0; i < tableBody.rows.length; i++) {
-    const row = tableBody.rows[i];
-    if (row.cells[0].textContent === updatedGame.getCode()) {
-      row.cells[1].textContent = updatedGame.getName();
-      break;
-    }
-  }
-}
-
 document.addEventListener("DOMContentLoaded", function () {
-  const gamesData = [
-    {
-      code: "001",
-      name: "Juego 1",
-      description: "Descripción del Juego 1",
-      price: 29.99,
-      stockQuantity: 100,
-      category: "Aventura",
-      image: "imagen1.jpg",
-      general: "General 1",
-      so: "Windows",
-      processor: "Intel i5",
-      memory: "8GB RAM",
-      graphic: "NVIDIA GTX 1050",
-      storage: "256GB SSD",
-    },
-    {
-      code: "002",
-      name: "Juego 2",
-      description: "Descripción del Juego 2",
-      price: 39.99,
-      stockQuantity: 50,
-      category: "Acción",
-      image: "imagen2.jpg",
-      general: "General 2",
-      so: "MacOS",
-      processor: "AMD Ryzen 7",
-      memory: "16GB RAM",
-      graphic: "AMD RX 5700",
-      storage: "512GB SSD",
-    },
-    {
-      code: "003",
-      name: "Juego 3",
-      description: "Descripción del Juego 3",
-      price: 19.99,
-      stockQuantity: 200,
-      category: "Estrategia",
-      image: "imagen3.jpg",
-      general: "General 3",
-      so: "Linux",
-      processor: "Intel i3",
-      memory: "4GB RAM",
-      graphic: "Integrated Graphics",
-      storage: "128GB HDD",
-    },
-  ];
+  document
+    .getElementById("crearJuegoForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      let juegoCreado = crearJuego();
 
-  gamesData.forEach((gameData) =>
-    new Game(...Object.values(gameData)).saveToLocal()
-  );
-
-  const localStorageData = Object.entries(localStorage);
-  const tableBody = document.getElementById("table-body");
-
-  for (const [key, value] of localStorageData) {
-    const loadedGame = new Game(...Object.values(JSON.parse(value)));
-
-    const row = tableBody.insertRow();
-    row.insertCell(0).textContent = key;
-    row.insertCell(1).textContent = loadedGame.getName();
-    row.insertCell(2).textContent = loadedGame.getStockQuantity();
-
-    const actionCell = row.insertCell(3);
-
-    const modifyButton = createButton("Modificar", "warning", () => {
-      const formFields = {
-        inputCode: "Code",
-        inputName: "Name",
-        inputDescription: "Description",
-        inputPrice: "Price",
-        inputStock: "StockQuantity",
-        inputCategory: "Category",
-        inputImage: "Image",
-        inputRequirementsGeneral: "General",
-        inputRequirementsSO: "So",
-        inputRequirementsProcessor: "Processor",
-        inputRequirementsMemory: "Memory",
-        inputRequirementsGraphic: "Graphic",
-        inputRequirementsStorage: "Storage",
-        inputPlatform: "Platform",
-      };
-
-      for (const [fieldId, suffix] of Object.entries(formFields)) {
-        document.getElementById(fieldId).value = loadedGame[`get${suffix}`]();
+      let existingGameIndex = arrGames.findIndex(
+        (g) => g._code === juegoCreado._code
+      );
+      if (existingGameIndex !== -1) {
+        alert("Ya existe un juego con el mismo código.");
+        return;
       }
+      arrGames.push(juegoCreado);
+      let arrGamesJSON = JSON.stringify(arrGames);
+      localStorage.setItem("games", arrGamesJSON);
+      location.reload();
     });
 
-    const deleteButton = createButton("Eliminar", "danger", () => {
-      document
-        .getElementById("confirmarEliminar")
-        .addEventListener("click", function () {
-          deleteGame(key);
-          row.remove();
-          $("#eliminarModal").modal("hide");
-        });
-    });
+  let tableBody = document.getElementById("table-body");
 
-    actionCell.appendChild(modifyButton);
-    actionCell.appendChild(deleteButton);
+  let games = JSON.parse(localStorage.getItem("games")) || [];
+
+  games.forEach((game) => {
+    let row = tableBody.insertRow();
+
+    let codeCell = row.insertCell();
+    codeCell.textContent = game._code;
+
+    let nameCell = row.insertCell();
+    nameCell.textContent = game._name;
+
+    let stockCell = row.insertCell();
+    stockCell.textContent = game._stockQuantity;
+
+    let actionsCell = row.insertCell();
+
+    let editButton = document.createElement("button");
+    editButton.textContent = "Editar";
+    editButton.classList.add("btn", "btn-warning");
+    editButton.setAttribute("data-bs-toggle", "modal");
+    editButton.setAttribute("data-bs-target", "#modificarModal");
+    editButton.onclick = function () {
+      document.getElementById("inputCode").value = game._code;
+      document.getElementById("inputName").value = game._name;
+      document.getElementById("inputDescription").value = game._description;
+      document.getElementById("inputPrice").value = game._price;
+      document.getElementById("inputStock").value = game._stockQuantity;
+      document.getElementById("inputCategory").value = Array.isArray(
+        game._categories
+      )
+        ? game._categories.join(", ")
+        : game._categories;
+      document.getElementById("inputImage").value = game._URLimage;
+      document.getElementById("inputRequirementsGeneral").value =
+        game._requirements.general;
+      document.getElementById("inputRequirementsSO").value =
+        game._requirements.SO;
+      document.getElementById("inputRequirementsProcessor").value =
+        game._requirements.processor;
+      document.getElementById("inputRequirementsMemory").value =
+        game._requirements.memory;
+      document.getElementById("inputRequirementsGraphic").value =
+        game._requirements.graphic;
+      document.getElementById("inputRequirementsStorage").value =
+        game._requirements.storage;
+      document.getElementById("inputPlatform").value = Array.isArray(
+        game._platforms
+      )
+        ? game._platforms.join(", ")
+        : game._platforms;
+    };
+    actionsCell.appendChild(editButton);
+
+    let deleteButton = document.createElement("button");
+    deleteButton.textContent = "Eliminar";
+    deleteButton.classList.add("btn", "btn-danger");
+    deleteButton.onclick = function () {
+      if (confirm("¿Estás seguro de que deseas eliminar este juego?")) {
+        let index = arrGames.findIndex((g) => g._code === game._code);
+        arrGames.splice(index, 1);
+        localStorage.setItem("games", JSON.stringify(arrGames));
+        row.remove();
+      }
+    };
+    actionsCell.appendChild(deleteButton);
+  });
+});
+
+document.getElementById("saveButton").addEventListener("click", function () {
+  let newCode = document.getElementById("inputCode").value;
+  let newName = document.getElementById("inputName").value;
+  let newDescription = document.getElementById("inputDescription").value;
+  let newPrice = parseFloat(document.getElementById("inputPrice").value);
+  let newStockQuantity = parseInt(document.getElementById("inputStock").value);
+  let newCategories = document.getElementById("inputCategory").value.split(",");
+  let newURLimage = document.getElementById("inputImage").value;
+  let newGeneralRequirements = document.getElementById(
+    "inputRequirementsGeneral"
+  ).value;
+  let newSO = document.getElementById("inputRequirementsSO").value;
+  let newProcessor = document.getElementById(
+    "inputRequirementsProcessor"
+  ).value;
+  let newMemory = document.getElementById("inputRequirementsMemory").value;
+  let newGraphic = document.getElementById("inputRequirementsGraphic").value;
+  let newStorage = document.getElementById("inputRequirementsStorage").value;
+  let newPlatform = document.getElementById("inputPlatform").value.split(",");
+
+  let gameIndex = arrGames.findIndex((g) => g._code === newCode);
+  if (gameIndex !== -1) {
+    arrGames[gameIndex]._name = newName;
+    arrGames[gameIndex]._description = newDescription;
+    arrGames[gameIndex]._price = newPrice;
+    arrGames[gameIndex]._stockQuantity = newStockQuantity;
+    arrGames[gameIndex]._categories = newCategories;
+    arrGames[gameIndex]._URLimage = newURLimage;
+    arrGames[gameIndex]._requirements.general = newGeneralRequirements;
+    arrGames[gameIndex]._requirements.SO = newSO;
+    arrGames[gameIndex]._requirements.processor = newProcessor;
+    arrGames[gameIndex]._requirements.memory = newMemory;
+    arrGames[gameIndex]._requirements.graphic = newGraphic;
+    arrGames[gameIndex]._requirements.storage = newStorage;
+    arrGames[gameIndex]._platforms = newPlatform;
+
+    localStorage.setItem("games", JSON.stringify(arrGames));
+    location.reload();
+  } else {
+    alert("No se pudo encontrar el juego en la lista.");
   }
 });
 
 document
-  .getElementById("saveButton")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-
-    const updatedGame = createGameFromForm(false);
-
-    if (localStorage.getItem(updatedGame.getCode())) {
-      updatedGame.updateLocal();
-      location.reload();
-    }
-  });
-
-document
-  .getElementById("crearJuegoButton")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-
-    const newGame = createGameFromForm(true);
-    $("#crearJuegoModal").modal("hide");
-    location.reload();
+  .getElementById("crearJuegoModal")
+  .addEventListener("shown.bs.modal", function (event) {
+    document.getElementById("inputNewCode").value = generarCodigoAleatorio();
   });
