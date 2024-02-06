@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <title>Formulario de Registro</title>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="text-center">
+            <h1 class="mb-4">Registrarse</h1>
+        </div>
+
+        <div class="d-flex justify-content-center mb-3">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createUserForm">
+                + Crear
+            </button>
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="createUserForm" tabindex="-1" role="dialog" aria-labelledby="createUserModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createUserModalLabel">Formulario de registro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form id="createUserForm" action="#" method="post">
+
+                        <div class="mb-3 row">
+                            <label for="inputUser" class="col-sm-2 col-form-label">Usuario</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputUser" required minlength="3"
+                                    maxlength="30">
+                                <small>Entre 3 y 30 caracteres.</small>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="inputMail" class="col-sm-2 col-form-label">Correo</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputMail" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword" required minlength="6"
+                                    maxlength="20">
+                                <small>Entre 6 y 20 caracteres.</small>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-primary" id="createUser">Registrarse</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <script src="../js/regUser.js"></script>
+</body>
+
+</html>
